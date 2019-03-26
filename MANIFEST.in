@@ -1,0 +1,14 @@
+# ontology
+wc_onto/onto.obo
+
+# description
+README.rst
+
+# version
+include wc_onto/VERSION
+
+# license
+include LICENSE
+
+# requirements
+include requirements.txt

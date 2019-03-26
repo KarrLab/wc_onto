@@ -1,0 +1,15 @@
+static_analyses:
+  ignore_files: []
+downstream_dependencies:
+  - datanator
+  - h1_hesc
+  - mycoplasma_pneumoniae
+  - obj_model
+  - wc_analysis
+  - wc_lang
+  - wc_model_gen
+  - wc_sim
+  - wc_test
+  - wc_utils
+email_notifications:
+  - jonrkarr@gmail.com
