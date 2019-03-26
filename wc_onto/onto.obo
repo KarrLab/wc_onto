@@ -7,11 +7,11 @@ saved-by: Jonathan Karr <karr@mssm.edu>
  ! import: KISAO
  ! import: SAO
  ! import: SBO
-default-namespace: wcm
+default-namespace: wc
 remark: distributed under the MIT License (https://github.com/KarrLab/wc_lang/blob/master/LICENSE)
 
 [Term]
-id: WCM:representation
+id: WC:representation
 name: whole-cell modeling representation
 def: "Representation of an entity used in whole-cell modeling"
 
@@ -21,61 +21,61 @@ def: "Representation of an entity used in whole-cell modeling"
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: WCM:compartment
+id: WC:compartment
 name: compartment
 def: "Compartment"
-is_a: WCM:representation
+is_a: WC:representation
 xref: SBO:0000289 ! functional compartment
 
 [Term]
-id: WCM:biological_compartment
+id: WC:biological_compartment
 name: biological compartment
 def: "Biological compartment"
-is_a: WCM:compartment
+is_a: WC:compartment
 
 [Term]
-id: WCM:cellular_compartment
+id: WC:cellular_compartment
 name: cellular compartment
 def: "Cellular compartment"
-is_a: WCM:biological_compartment
+is_a: WC:biological_compartment
 xref: sao1337158144 ! Cellular Component
 
 [Term]
-id: WCM:extracellular_compartment
+id: WC:extracellular_compartment
 name: extracellular compartment
 def: "Extracellular compartment"
-is_a: WCM:biological_compartment
+is_a: WC:biological_compartment
 
 [Term]
-id: WCM:physical_compartment
+id: WC:physical_compartment
 name: physical compartment
 def: "Physical compartment"
-is_a: WCM:compartment
+is_a: WC:compartment
 xref: SBO:0000290 ! physical compartment
 
 [Term]
-id: WCM:fluid_compartment
+id: WC:fluid_compartment
 name: fluid compartment
 def: "Fluid compartment"
-is_a: WCM:physical_compartment
+is_a: WC:physical_compartment
 
 [Term]
-id: WCM:membrane_compartment
+id: WC:membrane_compartment
 name: membrane compartment
 def: "Membrane compartment"
-is_a: WCM:physical_compartment
+is_a: WC:physical_compartment
 
 [Term]
-id: WCM:geometric_compartment
+id: WC:geometric_compartment
 name: geometric compartment
 def: "Geometric compartment"
-is_a: WCM:compartment
+is_a: WC:compartment
 
 [Term]
-id: WCM:3D_compartment
+id: WC:3D_compartment
 name: 3D compartment
 def: "3D compartment"
-is_a: WCM:geometric_compartment
+is_a: WC:geometric_compartment
 
 
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -83,43 +83,43 @@ is_a: WCM:geometric_compartment
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: WCM:species_type
+id: WC:species_type
 name: species type
 def: "Type of species"
-is_a: WCM:representation
+is_a: WC:representation
 
 [Term]
-id: WCM:metabolite
+id: WC:metabolite
 name: metabolite
 def: "Metabolite"
-is_a: WCM:species_type
+is_a: WC:species_type
 xref: SBO:0000299 ! metabolite
 
 [Term]
-id: WCM:protein
+id: WC:protein
 name: protein
 def: "Protein"
-is_a: WCM:species_type
+is_a: WC:species_type
 
 [Term]
-id: WCM:RNA
+id: WC:RNA
 name: RNA
 def: "RNA"
-is_a: WCM:species_type
+is_a: WC:species_type
 xref: SBO:0000250 ! ribonucleic acid
 
 [Term]
-id: WCM:DNA
+id: WC:DNA
 name: DNA
 def: "DNA"
-is_a: WCM:species_type
+is_a: WC:species_type
 xref: SBO:0000251 ! deoxyribonucleic acid
 
 [Term]
-id: WCM:pseudo_species
+id: WC:pseudo_species
 name: pseudo-species
 def: "Pseudo-species"
-is_a: WCM:species_type
+is_a: WC:species_type
 
 
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -127,35 +127,35 @@ is_a: WCM:species_type
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: WCM:modeling_framework
+id: WC:modeling_framework
 name: modeling framework
 def: "Modeling framework"
-is_a: WCM:representation
+is_a: WC:representation
 xref: kisao:KISAO_0000000 ! modelling and simulation algorithm
 
 [Term]
-id: WCM:stochastic_simulation_algorithm
+id: WC:stochastic_simulation_algorithm
 name: stochastic simulation algorithm
 def: "Stochastic simulation algorithm"
 ! synonym: "SSA" EXACT
-is_a: WCM:modeling_framework
+is_a: WC:modeling_framework
 xref: SBO:0000295 ! non-spatial discrete framework
 xref: kisao:KISAO_0000241 ! Gillespie-like method
 
 [Term]
-id: WCM:ordinary_differential_equations
+id: WC:ordinary_differential_equations
 name: ordinary differential equations
 def: "Ordinary differential equations"
 ! synonym: "ODEs" EXACT
-is_a: WCM:modeling_framework
+is_a: WC:modeling_framework
 xref: SBO:0000062 ! continuous framework
 
 [Term]
-id: WCM:dynamic_flux_balance_analysis
+id: WC:dynamic_flux_balance_analysis
 name: dynamic flux balance analysis
 def: "Dynamic flux balance analysis"
 ! synonym: "dFBA" EXACT
-is_a: WCM:modeling_framework
+is_a: WC:modeling_framework
 xref: SBO:0000624 ! flux balance framework
 xref: kisao:KISAO_0000499 ! dynamic flux balance analysis
 
@@ -164,38 +164,38 @@ xref: kisao:KISAO_0000499 ! dynamic flux balance analysis
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: WCM:rate_law
+id: WC:rate_law
 name: rate law
 def: "Rate law"
-is_a: WCM:representation
+is_a: WC:representation
 xref: SBO:0000001 ! rate law
 
 [Term]
-id: WCM:hill_rate_law
+id: WC:hill_rate_law
 name: hill rate law
 def: "Hill rate law"
-is_a: WCM:rate_law
+is_a: WC:rate_law
 xref: SBO:0000192 ! Hill-type rate law, generalised form
 
 [Term]
-id: WCM:mass_action_rate_law
+id: WC:mass_action_rate_law
 name: mass-action rate law
 def: "Mass-action rate law"
-is_a: WCM:rate_law
+is_a: WC:rate_law
 xref: SBO:0000012 ! mass action rate law
 
 [Term]
-id: WCM:Michaelis_Menten_rate_law
+id: WC:Michaelis_Menten_rate_law
 name: Michaelis-Menten rate law
 def: "Michaelis-Menten rate law"
-is_a: WCM:rate_law
+is_a: WC:rate_law
 xref: SBO:0000029 ! Henri-Michaelis-Menten rate law
 
 [Term]
-id: WCM:modular_rate_law
+id: WC:modular_rate_law
 name: modular rate law
 def: "Modular rate law"
-is_a: WCM:rate_law
+is_a: WC:rate_law
 xref: SBO:0000527 ! modular rate law
 
 
@@ -204,58 +204,58 @@ xref: SBO:0000527 ! modular rate law
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: WCM:parameter
+id: WC:parameter
 name: parameter
 def: "Parameter"
-is_a: WCM:representation
+is_a: WC:representation
 xref: SBO:0000002 ! quantitative systems description parameter
 
 [Term]
-id: WCM:physical_constant
+id: WC:physical_constant
 name: physical constant
 def: "Physical constant"
-is_a: WCM:parameter
+is_a: WC:parameter
 
 [Term]
-id: WCM:kinetic_constant
+id: WC:kinetic_constant
 name: kinetic constant
 def: "Kinetic constant"
-is_a: WCM:parameter
+is_a: WC:parameter
 xref: SBO:0000009 ! kinetic constant
 
 [Term]
-id: WCM:K_i
+id: WC:K_i
 name: K_i
 def: "K_i"
-is_a: WCM:kinetic_constant
+is_a: WC:kinetic_constant
 xref: SBO:0000261 ! inhibitory constant
 
 [Term]
-id: WCM:k_cat
+id: WC:k_cat
 name: k_cat
 def: "k_cat"
-is_a: WCM:kinetic_constant
+is_a: WC:kinetic_constant
 xref: SBO:0000025 ! catalytic rate constant
 
 [Term]
-id: WCM:K_m
+id: WC:K_m
 name: K_m
 def: "K_m"
-is_a: WCM:kinetic_constant
+is_a: WC:kinetic_constant
 xref: SBO:0000027 ! Michaelis constant
 
 [Term]
-id: WCM:v_max
+id: WC:v_max
 name: v_max
 def: "v_max"
-is_a: WCM:kinetic_constant
+is_a: WC:kinetic_constant
 xref: SBO:0000186 ! maximal velocity
 
 [Term]
-id: WCM:K_i
+id: WC:K_i
 name: K_i
 def: "K_i"
-is_a: WCM:kinetic_constant
+is_a: WC:kinetic_constant
 xref: SBO:0000261 ! inhibitory constant
 
 
@@ -264,10 +264,10 @@ xref: SBO:0000261 ! inhibitory constant
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: WCM:provenance
+id: WC:provenance
 name: provenance
 def: "Provenance"
-is_a: WCM:representation
+is_a: WC:representation
 
 
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -275,28 +275,28 @@ is_a: WCM:representation
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: WCM:evidence
+id: WC:evidence
 name: evidence
 def: "Evidence"
-is_a: WCM:provenance
+is_a: WC:provenance
 
 [Term]
-id: WCM:experimental_evidence
+id: WC:experimental_evidence
 name: experimental evidence
 def: "Experimental evidence"
-is_a: WCM:evidence
+is_a: WC:evidence
 
 [Term]
-id: WCM:computational_evidence
+id: WC:computational_evidence
 name: computational evidence
 def: "Computational evidence"
-is_a: WCM:evidence
+is_a: WC:evidence
 
 [Term]
-id: WCM:theoretical_evidence
+id: WC:theoretical_evidence
 name: theoretical evidence
 def: "Theoretical evidence"
-is_a: WCM:evidence
+is_a: WC:evidence
 
 
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -304,40 +304,40 @@ is_a: WCM:evidence
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: WCM:interpretation
+id: WC:interpretation
 name: interpretation
 def: "Interpretation"
-is_a: WCM:provenance
+is_a: WC:provenance
 
 [Term]
-id: WCM:assumption
+id: WC:assumption
 name: assumption
 def: "Assumption"
-is_a: WCM:interpretation
+is_a: WC:interpretation
 
 [Term]
-id: WCM:approximation
+id: WC:approximation
 name: approximation
 def: "Approximation"
-is_a: WCM:interpretation
+is_a: WC:interpretation
 
 [Term]
-id: WCM:coarse_graining
+id: WC:coarse_graining
 name: coarse-graining
 def: "Coarse-graining"
-is_a: WCM:approximation
+is_a: WC:approximation
 
 [Term]
-id: WCM:computation
+id: WC:computation
 name: computation
 def: "Computation"
-is_a: WCM:interpretation
+is_a: WC:interpretation
 
 [Term]
-id: WCM:decision
+id: WC:decision
 name: decision
 def: "Decision"
-is_a: WCM:interpretation
+is_a: WC:interpretation
 
 
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -345,45 +345,45 @@ is_a: WCM:interpretation
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: WCM:reference
+id: WC:reference
 name: reference
 def: "Reference"
-is_a: WCM:provenance
+is_a: WC:provenance
 xref: BRO:Information_Resource ! Information Resource
 
 [Term]
-id: WCM:article
+id: WC:article
 name: article
 def: "Article"
-is_a: WCM:reference
+is_a: WC:reference
 xref: BRO:Journal_Article ! Journal Article
 
 [Term]
-id: WCM:book
+id: WC:book
 name: book
 def: "Book"
-is_a: WCM:reference
+is_a: WC:reference
 xref: BRO:Book ! book
 
 [Term]
-id: WCM:website
+id: WC:website
 name: online
 def: "Online"
-is_a: WCM:reference
+is_a: WC:reference
 xref: BRO:Website ! Website
 
 [Term]
-id: WCM:proceedings
+id: WC:proceedings
 name: proceedings
 def: "Proceedings"
-is_a: WCM:reference
+is_a: WC:reference
 xref: BRO:Conference_Proceeding ! Conference Proceeding
 
 [Term]
-id: WCM:thesis
+id: WC:thesis
 name: thesis
 def: "Thesis"
-is_a: WCM:reference
+is_a: WC:reference
 xref: BRO:Thesis ! Thesis
 
 
@@ -392,403 +392,403 @@ xref: BRO:Thesis ! Thesis
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: WCM:random_distribution
+id: WC:random_distribution
 name: random distribution
 def: "Random distribution"
-is_a: WCM:representation
+is_a: WC:representation
 
 [Term]
-id: WCM:beta_distribution
+id: WC:beta_distribution
 name: beta distribution
 def: "Beta distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:binomial_distribution
+id: WC:binomial_distribution
 name: binomial distribution
 def: "Binomial distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:chi_square_distribution
+id: WC:chi_square_distribution
 name: chi square distribution
 def: "Chi square distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:Dirichlet_distribution
+id: WC:Dirichlet_distribution
 name: Dirichlet distribution
 def: "Dirichlet distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:exponential_distribution
+id: WC:exponential_distribution
 name: exponential distribution
 def: "Exponential distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:f_distribution
+id: WC:f_distribution
 name: f distribution
 def: "F distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:gamma_distribution
+id: WC:gamma_distribution
 name: gamma distribution
 def: "Gamma distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:geometric_distribution
+id: WC:geometric_distribution
 name: geometric distribution
 def: "Geometric distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:Gumbel_distribution
+id: WC:Gumbel_distribution
 name: Gumbel distribution
 def: "Gumbel distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:hypergeometric_distribution
+id: WC:hypergeometric_distribution
 name: hypergeometric distribution
 def: "Hypergeometric distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:Laplace_distribution
+id: WC:Laplace_distribution
 name: Laplace distribution
 def: "Laplace distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:logisitic_distribution
+id: WC:logisitic_distribution
 name: logisitic distribution
 def: "Logisitic distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:log_normal_distribution
+id: WC:log_normal_distribution
 name: log normal distribution
 def: "Log normal distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:log_series_distribution
+id: WC:log_series_distribution
 name: log series distribution
 def: "Log series distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:multinomial_distribution
+id: WC:multinomial_distribution
 name: multinomial distribution
 def: "Multinomial distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:multivariate_normal_distribution
+id: WC:multivariate_normal_distribution
 name: multivariate-normal distribution
 def: "Multivariate-normal distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:negative_binomial_distribution
+id: WC:negative_binomial_distribution
 name: negative-binomial distribution
 def: "Negative-binomial distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:noncentral-chi_square_distribution
+id: WC:noncentral-chi_square_distribution
 name: noncentral-chi square distribution
 def: "Noncentral-chi square distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:noncentral-f_distribution
+id: WC:noncentral-f_distribution
 name: noncentral-f distribution
 def: "Noncentral-f distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:normal_distribution
+id: WC:normal_distribution
 name: normal distribution
 def: "Normal distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:Pareto_distribution
+id: WC:Pareto_distribution
 name: Pareto distribution
 def: "Pareto distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:Poisson_distribution
+id: WC:Poisson_distribution
 name: Poisson distribution
 def: "Poisson distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:power_distribution
+id: WC:power_distribution
 name: power distribution
 def: "Power distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:Rayleigh_distribution
+id: WC:Rayleigh_distribution
 name: Rayleigh distribution
 def: "Rayleigh distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:standard-Cauchy_distribution
+id: WC:standard-Cauchy_distribution
 name: standard-Cauchy distribution
 def: "Standard-Cauchy distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:standard-exponential_distribution
+id: WC:standard-exponential_distribution
 name: standard-exponential distribution
 def: "Standard-exponential distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:standard-gamma_distribution
+id: WC:standard-gamma_distribution
 name: standard-gamma distribution
 def: "Standard-gamma distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:standard-normal_distribution
+id: WC:standard-normal_distribution
 name: standard-normal distribution
 def: "Standard-normal distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:standard-t_distribution
+id: WC:standard-t_distribution
 name: standard-t distribution
 def: "Standard-t distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:triangular_distribution
+id: WC:triangular_distribution
 name: triangular distribution
 def: "Triangular distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:uniform_distribution
+id: WC:uniform_distribution
 name: uniform distribution
 def: "Uniform distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:Vonmises_distribution
+id: WC:Vonmises_distribution
 name: Vonmises distribution
 def: "Vonmises distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:Wald_distribution
+id: WC:Wald_distribution
 name: Wald distribution
 def: "Wald distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:Weibull_distribution
+id: WC:Weibull_distribution
 name: Weibull distribution
 def: "Weibull distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
 [Term]
-id: WCM:Zipf_distribution
+id: WC:Zipf_distribution
 name: Zipf distribution
 def: "Zipf distribution"
-is_a: WCM:random_distribution
+is_a: WC:random_distribution
 
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  !!! Changes
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: WCM:change_provenance
+id: WC:change_provenance
 name: change
 def: "Change"
-is_a: WCM:provenance
+is_a: WC:provenance
 xref: COMODI:Change
 
 [Term]
-id: WCM:deletion_change_provenance
+id: WC:deletion_change_provenance
 name: deletion
 def: "Deletion"
-is_a: WCM:change_provenance
+is_a: WC:change_provenance
 xref: COMODI:Deletion
 
 [Term]
-id: WCM:insertion_change_provenance
+id: WC:insertion_change_provenance
 name: insertion
 def: "Insertion"
-is_a: WCM:change_provenance
+is_a: WC:change_provenance
 xref: COMODI:Insertion
 
 [Term]
-id: WCM:move_change_provenance
+id: WC:move_change_provenance
 name: move
 def: "Move"
-is_a: WCM:change_provenance
+is_a: WC:change_provenance
 xref: COMODI:Move
 
 [Term]
-id: WCM:update_change_provenance
+id: WC:update_change_provenance
 name: update
 def: "Update"
-is_a: WCM:change_provenance
+is_a: WC:change_provenance
 xref: COMODI:Update
 
 [Term]
-id: WCM:merge_change_provenance
+id: WC:merge_change_provenance
 name: merge
 def: "Merge"
-is_a: WCM:change_provenance
+is_a: WC:change_provenance
 
 [Term]
-id: WCM:copy_change_provenance
+id: WC:copy_change_provenance
 name: copy
 def: "Copy"
-is_a: WCM:change_provenance
+is_a: WC:change_provenance
 
 [Term]
-id: WCM:revert_change_provenance
+id: WC:revert_change_provenance
 name: revert
 def: "Revert"
-is_a: WCM:change_provenance
+is_a: WC:change_provenance
 
 [Term]
-id: WCM:intention_provenance
+id: WC:intention_provenance
 name: intention
 def: "Intention"
-is_a: WCM:provenance
+is_a: WC:provenance
 xref: COMODI:Intention
 
 [Term]
-id: WCM:correct_intention_provenance
+id: WC:correct_intention_provenance
 name: correct
 def: "Correct"
-is_a: WCM:intention_provenance
+is_a: WC:intention_provenance
 xref: COMODI:Correction
 
 [Term]
-id: WCM:elaborate_intention_provenance
+id: WC:elaborate_intention_provenance
 name: elaborate
 def: "Add more detail"
-is_a: WCM:intention_provenance
+is_a: WC:intention_provenance
 xref: COMODI:Elaboration
 
 [Term]
-id: WCM:expand_intention_provenance
+id: WC:expand_intention_provenance
 name: expand
 def: "Expand the scope"
-is_a: WCM:intention_provenance
+is_a: WC:intention_provenance
 xref: COMODI:Expansion
 
 [Term]
-id: WCM:simplify_intention_provenance
+id: WC:simplify_intention_provenance
 name: simplify
 def: "Simplify"
-is_a: WCM:intention_provenance
+is_a: WC:intention_provenance
 xref: COMODI:Simplification
 
 [Term]
-id: WCM:reason_provenance
+id: WC:reason_provenance
 name: reason
 def: "Reason"
-is_a: WCM:provenance
+is_a: WC:provenance
 xref: COMODI:Reason
 
 [Term]
-id: WCM:new_goal_reason_provenance
+id: WC:new_goal_reason_provenance
 name: new goal for a project
 def: "New goal for a project. For example, a new phenotype that a model should predict or a new molecular mechanism that a model should account for"
-is_a: WCM:reason_provenance
+is_a: WC:reason_provenance
 
 [Term]
-id: WCM:new_knowledge_reason_provenance
+id: WC:new_knowledge_reason_provenance
 name: new knowledge
 def: "New knowledge"
-is_a: WCM:reason_provenance
+is_a: WC:reason_provenance
 xref: COMODI:KnowledgeGain
 
 [Term]
-id: WCM:incorrect_interpretation_reason_provenance
+id: WC:incorrect_interpretation_reason_provenance
 name: incorrect interpretation of existing knowledge
 def: "Incorrect interpretation of existing knowledge"
-is_a: WCM:reason_provenance
+is_a: WC:reason_provenance
 xref: COMODI:MismatchWithPublication
 
 [Term]
-id: WCM:implementation_error_reason_provenance
+id: WC:implementation_error_reason_provenance
 name: implementation error
 def: "Implementation error such as a typo"
-is_a: WCM:reason_provenance
+is_a: WC:reason_provenance
 xref: COMODI:Typo
 
 [Term]
-id: WCM:migrate_version_reason_provenance
+id: WC:migrate_version_reason_provenance
 name: migrate to another version
 def: "Migrate object to another version of a specification"
-is_a: WCM:reason_provenance
+is_a: WC:reason_provenance
 xref: COMODI:ChangedSpecification
 
 [Term]
-id: WCM:add_metadata_reason_provenance
+id: WC:add_metadata_reason_provenance
 name: add metadata
 def: "Add metadata to facilitate comprehension"
-is_a: WCM:reason_provenance
+is_a: WC:reason_provenance
 xref: COMODI:ModelCuration
 
 [Term]
-id: WCM:target_provenance
+id: WC:target_provenance
 name: target
 def: "Target"
-is_a: WCM:provenance
+is_a: WC:provenance
 xref: COMODI:Target
 
 [Term]
-id: WCM:data_target_provenance
+id: WC:data_target_provenance
 name: data
 def: "Data"
-is_a: WCM:target_provenance
+is_a: WC:target_provenance
 
 [Term]
-id: WCM:model_target_provenance
+id: WC:model_target_provenance
 name: model
 def: "Model"
-is_a: WCM:data_target_provenance
+is_a: WC:data_target_provenance
 xref: COMODI:ModelDefinition
 
 [Term]
-id: WCM:model_initial_conditions_target_provenance
+id: WC:model_initial_conditions_target_provenance
 name: initial conditions
 def: "Initial conditions"
-is_a: WCM:model_target_provenance
+is_a: WC:model_target_provenance
 
 [Term]
-id: WCM:model_dynamics_target_provenance
+id: WC:model_dynamics_target_provenance
 name: dynamics
 def: "Dynamics"
-is_a: WCM:model_target_provenance
+is_a: WC:model_target_provenance
 
 [Term]
-id: WCM:metadata_target_provenance
+id: WC:metadata_target_provenance
 name: metadata
 def: "Metadata"
-is_a: WCM:target_provenance
+is_a: WC:target_provenance
 xref: COMODI:ModelAnnotation
 
 [Term]
-id: WCM:encoding_target_provenance
+id: WC:encoding_target_provenance
 name: encoding
 def: "Encoding (e.g. a different or revised file format)"
-is_a: WCM:target_provenance
+is_a: WC:target_provenance
 xref: COMODI:ModelEncoding
