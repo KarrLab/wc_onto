@@ -5,6 +5,7 @@ saved-by: Jonathan Karr <karr@mssm.edu>
  ! import: BRO
  ! import: COMODI
  ! import: KISAO
+ ! import: MATR
  ! import: SAO
  ! import: SBO
 default-namespace: wc
@@ -15,17 +16,168 @@ id: WC:representation
 name: whole-cell modeling representation
 def: "Representation of an entity used in whole-cell modeling"
 
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!! Model element types
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- !!! Compartments
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[Term]
+id: WC:model_element
+name: model element
+def: "Model element"
+is_a: WC:representation
+
+[Term]
+id: WC:model
+name: model
+def: "Model"
+is_a: WC:model_element
+
+[Term]
+id: WC:taxon
+name: taxon
+def: "Taxon"
+is_a: WC:model_element
+
+[Term]
+id: WC:environment
+name: environment
+def: "Environment"
+is_a: WC:model_element
+
+[Term]
+id: WC:submodel
+name: submodel
+def: "Submodel"
+is_a: WC:model_element
 
 [Term]
 id: WC:compartment
 name: compartment
 def: "Compartment"
 is_a: WC:representation
+is_a: WC:model_element
 xref: SBO:0000289 ! functional compartment
+
+[Term]
+id: WC:species_type
+name: species type
+def: "Type of species"
+is_a: WC:representation
+is_a: WC:model_element
+xref: MATR:Compound
+
+[Term]
+id: WC:species
+name: species
+def: "Species"
+is_a: WC:model_element
+
+[Term]
+id: WC:distribution_init_concentration
+name: distribution of initial concentration
+def: "Distribution of initial concentration"
+is_a: WC:model_element
+
+[Term]
+id: WC:observable
+name: observable
+def: "Observable"
+is_a: WC:model_element
+
+[Term]
+id: WC:function
+name: function
+def: "Function"
+is_a: WC:model_element
+xref: SBO:0000064 ! mathematical expression
+
+[Term]
+id: WC:reaction
+name: reaction
+def: "Reaction"
+is_a: WC:model_element
+xref: SBO:0000375 ! process
+xref: SBO:0000167 ! biochemical or transport reaction
+
+[Term]
+id: WC:rate_law
+name: rate law
+def: "Rate law"
+is_a: WC:representation
+is_a: WC:model_element
+xref: SBO:0000001 ! rate law
+
+[Term]
+id: WC:dfba_objective
+name: dFBA objective
+def: "dFBA objective"
+is_a: WC:model_element
+
+[Term]
+id: WC:dfba_reaction
+name: dFBA reaction
+def: "dFBA reaction"
+is_a: WC:model_element
+
+[Term]
+id: WC:dfba_species
+name: dFBA species
+def: "dFBA species"
+is_a: WC:model_element
+
+[Term]
+id: WC:parameter
+name: parameter
+def: "Parameter"
+is_a: WC:representation
+is_a: WC:model_element
+xref: SBO:0000002 ! quantitative systems description parameter
+
+[Term]
+id: WC:stop_condition
+name: stop condition
+def: "Stop condition"
+is_a: WC:model_element
+
+[Term]
+id: WC:evidence
+name: evidence
+def: "Evidence"
+is_a: WC:model_element
+is_a: WC:provenance
+
+[Term]
+id: WC:interpretation
+name: interpretation
+def: "Interpretation"
+is_a: WC:model_element
+is_a: WC:provenance
+
+[Term]
+id: WC:reference
+name: reference
+def: "reference"
+is_a: WC:model_element
+is_a: WC:provenance
+xref: BRO:Information_Resource ! Information Resource
+
+[Term]
+id: WC:author
+name: author
+def: "Author"
+is_a: WC:model_element
+
+[Term]
+id: WC:change
+name: change
+def: "Change"
+is_a: WC:model_element
+is_a: WC:provenance
+xref: COMODI:Change
+
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!! Compartments
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:biological_compartment
@@ -81,12 +233,6 @@ is_a: WC:geometric_compartment
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  !!! Species types
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-[Term]
-id: WC:species_type
-name: species type
-def: "Type of species"
-is_a: WC:representation
 
 [Term]
 id: WC:metabolite
@@ -164,13 +310,6 @@ xref: kisao:KISAO_0000499 ! dynamic flux balance analysis
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: WC:rate_law
-name: rate law
-def: "Rate law"
-is_a: WC:representation
-xref: SBO:0000001 ! rate law
-
-[Term]
 id: WC:hill_rate_law
 name: hill rate law
 def: "Hill rate law"
@@ -202,13 +341,6 @@ xref: SBO:0000527 ! modular rate law
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  !!! Parameters
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-[Term]
-id: WC:parameter
-name: parameter
-def: "Parameter"
-is_a: WC:representation
-xref: SBO:0000002 ! quantitative systems description parameter
 
 [Term]
 id: WC:physical_constant
@@ -275,12 +407,6 @@ is_a: WC:representation
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: WC:evidence
-name: evidence
-def: "Evidence"
-is_a: WC:provenance
-
-[Term]
 id: WC:experimental_evidence
 name: experimental evidence
 def: "Experimental evidence"
@@ -302,12 +428,6 @@ is_a: WC:evidence
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  !!! Interpretation
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-[Term]
-id: WC:interpretation
-name: interpretation
-def: "Interpretation"
-is_a: WC:provenance
 
 [Term]
 id: WC:assumption
@@ -343,13 +463,6 @@ is_a: WC:interpretation
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  !!! References
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-[Term]
-id: WC:reference
-name: reference
-def: "Reference"
-is_a: WC:provenance
-xref: BRO:Information_Resource ! Information Resource
 
 [Term]
 id: WC:article
@@ -612,57 +725,50 @@ is_a: WC:random_distribution
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: WC:change_provenance
-name: change
-def: "Change"
-is_a: WC:provenance
-xref: COMODI:Change
-
-[Term]
 id: WC:deletion_change_provenance
 name: deletion
 def: "Deletion"
-is_a: WC:change_provenance
+is_a: WC:change
 xref: COMODI:Deletion
 
 [Term]
 id: WC:insertion_change_provenance
 name: insertion
 def: "Insertion"
-is_a: WC:change_provenance
+is_a: WC:change
 xref: COMODI:Insertion
 
 [Term]
 id: WC:move_change_provenance
 name: move
 def: "Move"
-is_a: WC:change_provenance
+is_a: WC:change
 xref: COMODI:Move
 
 [Term]
 id: WC:update_change_provenance
 name: update
 def: "Update"
-is_a: WC:change_provenance
+is_a: WC:change
 xref: COMODI:Update
 
 [Term]
 id: WC:merge_change_provenance
 name: merge
 def: "Merge"
-is_a: WC:change_provenance
+is_a: WC:change
 
 [Term]
 id: WC:copy_change_provenance
 name: copy
 def: "Copy"
-is_a: WC:change_provenance
+is_a: WC:change
 
 [Term]
 id: WC:revert_change_provenance
 name: revert
 def: "Revert"
-is_a: WC:change_provenance
+is_a: WC:change
 
 [Term]
 id: WC:intention_provenance
