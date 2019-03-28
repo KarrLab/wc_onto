@@ -9,7 +9,7 @@ Prerequisites
 
 Latest snapshot from BioPortal
 ------------------------------
-The latest snapshot can be downloaded from BioPortal at `https://bioportal.bioontology.org/ontologies/WCM <https://bioportal.bioontology.org/ontologies/WCM>`_.
+The latest snapshot can be downloaded from BioPortal at `https://bioportal.bioontology.org/ontologies/WC <https://bioportal.bioontology.org/ontologies/WC>`_.
 
 Latest revision from GitHub
 ---------------------------

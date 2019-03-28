@@ -11,7 +11,7 @@
 Ontology for whole-cell modeling
 
 ## Installation
-1. Download [latest snapshot](https://bioportal.bioontology.org/ontologies/WCM) from BioPortal
+1. Download [latest snapshot](https://bioportal.bioontology.org/ontologies/WC) from BioPortal
 2. Install latest revision from GitHub
     ```
     pip install git+https://github.com/KarrLab/wc_onto.git#egg=wc_onto[all]
