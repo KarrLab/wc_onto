@@ -6,7 +6,6 @@ saved-by: Jonathan Karr <karr@mssm.edu>
  ! import: COMODI
  ! import: KISAO
  ! import: MATR
- ! import: SAO
  ! import: SBO
 default-namespace: wc
 remark: distributed under the MIT License (https://github.com/KarrLab/wc_lang/blob/master/LICENSE)
