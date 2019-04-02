@@ -7,6 +7,9 @@ README.rst
 # version
 include wc_onto/VERSION
 
+# configuration
+recursive-include wc_onto/config *.cfg
+
 # license
 include LICENSE
 

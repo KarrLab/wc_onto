@@ -2,11 +2,12 @@ format-version: 1.4
 data-version: 0.0.1
 date: 14:01:2019 13:00
 saved-by: Jonathan Karr <karr@mssm.edu>
- ! import: BRO
- ! import: COMODI
- ! import: KISAO
- ! import: MATR
- ! import: SBO
+import: ontologies/BRO.owl ! Biomedical Resource Ontology
+import: ontologies/COMODI.owl ! COmputational MOdels DIffer
+import: ontologies/KISAO.owl ! Kinetic Simulation Algorithm Ontology
+import: ontologies/MATR.owl ! Material
+import: ontologies/SBO.obo ! Systems Biology Ontology
+import: ontologies/SEPIO.owl ! Scientific Evidence and Provenance Information Ontology
 default-namespace: wc
 remark: distributed under the MIT License (https://github.com/KarrLab/wc_lang/blob/master/LICENSE)
 

@@ -13,6 +13,7 @@ package_data = {
     name: [
         'VERSION',
         'onto.obo',
+        'config/*.cfg',
     ],
 }
 

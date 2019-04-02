@@ -1,2 +1,5 @@
+configobj
 pronto
+requests
 setuptools
+wc_utils
