@@ -146,13 +146,20 @@ def: "Evidence"
 is_a: WC:model_element
 is_a: WC:provenance
 xref: SEPIO:0000149 ! evidence item
-xref: SEPIO:0000002 ! evidence line
 xref: IAO:0000111 ! data item
 
 [Term]
 id: WC:interpretation
 name: interpretation
 def: "Interpretation"
+is_a: WC:model_element
+is_a: WC:provenance
+xref: SEPIO:0000002 ! evidence line
+
+[Term]
+id: WC:conclusion
+name: conclusion
+def: "Conclusion"
 is_a: WC:model_element
 is_a: WC:provenance
 xref: SEPIO:0000000 ! proposition
@@ -449,20 +456,20 @@ xref: IAO:0000100 ! data set
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! Interpretation
+!!! Conclusion
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:assumption
 name: assumption
 def: "Assumption"
-is_a: WC:interpretation
+is_a: WC:conclusion
 
 [Term]
 id: WC:approximation
 name: approximation
 def: "Approximation"
-is_a: WC:interpretation
+is_a: WC:conclusion
 
 [Term]
 id: WC:coarse_graining
@@ -474,13 +481,13 @@ is_a: WC:approximation
 id: WC:computation
 name: computation
 def: "Computation"
-is_a: WC:interpretation
+is_a: WC:conclusion
 
 [Term]
 id: WC:decision
 name: decision
 def: "Decision"
-is_a: WC:interpretation
+is_a: WC:conclusion
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
