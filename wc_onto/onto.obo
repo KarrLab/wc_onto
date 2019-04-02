@@ -147,6 +147,7 @@ is_a: WC:model_element
 is_a: WC:provenance
 xref: SEPIO:0000149 ! evidence item
 xref: SEPIO:0000002 ! evidence line
+xref: IAO:0000111 ! data item
 
 [Term]
 id: WC:interpretation
