@@ -15,6 +15,10 @@ import requests
 bio_portal_api_key = wc_onto.config.core.get_config()['wc_onto']['bioportal']['key']
 
 DEPENDENT_ONTOLOGIES = {
+    'BFO': {
+        'url': 'https://raw.githubusercontent.com/BFO-ontology/BFO/master/releases/2.0/bfo.owl',
+        'format': 'owl',
+    },
     'BRO': {
         'url': 'http://data.bioontology.org/ontologies/BRO/download',
         'format': 'owl',
@@ -24,6 +28,14 @@ DEPENDENT_ONTOLOGIES = {
     },
     'COMODI': {
         'url': 'https://raw.githubusercontent.com/binfalse/COMODI/master/ontology/comodi.owl',
+        'format': 'owl',
+    },
+    'FOAF': {
+        'url': 'http://xmlns.com/foaf/spec/index.rdf',
+        'format': 'owl',
+    },
+    'IAO': {
+        'url': 'https://raw.githubusercontent.com/information-artifact-ontology/IAO/master/src/ontology/iao.owl',
         'format': 'owl',
     },
     'KISAO': {

@@ -2,8 +2,11 @@ format-version: 1.4
 data-version: 0.0.1
 date: 14:01:2019 13:00
 saved-by: Jonathan Karr <karr@mssm.edu>
+import: ontologies/BFO.owl ! Basic Formal Ontology
 import: ontologies/BRO.owl ! Biomedical Resource Ontology
 import: ontologies/COMODI.owl ! COmputational MOdels DIffer
+import: ontologies/FOAF.owl ! friend of a friend
+import: ontologies/IAO.owl ! Information Artifact Ontology
 import: ontologies/KISAO.owl ! Kinetic Simulation Algorithm Ontology
 import: ontologies/MATR.owl ! Material
 import: ontologies/SBO.obo ! Systems Biology Ontology
@@ -16,9 +19,10 @@ id: WC:representation
 name: whole-cell modeling representation
 def: "Representation of an entity used in whole-cell modeling"
 
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- !!! Model element types
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Model element types
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:model_element
@@ -54,7 +58,6 @@ is_a: WC:model_element
 id: WC:compartment
 name: compartment
 def: "Compartment"
-is_a: WC:representation
 is_a: WC:model_element
 xref: SBO:0000289 ! functional compartment
 
@@ -62,7 +65,6 @@ xref: SBO:0000289 ! functional compartment
 id: WC:species_type
 name: species type
 def: "Type of species"
-is_a: WC:representation
 is_a: WC:model_element
 xref: MATR:Compound
 
@@ -103,7 +105,6 @@ xref: SBO:0000167 ! biochemical or transport reaction
 id: WC:rate_law
 name: rate law
 def: "Rate law"
-is_a: WC:representation
 is_a: WC:model_element
 xref: SBO:0000001 ! rate law
 
@@ -129,7 +130,6 @@ is_a: WC:model_element
 id: WC:parameter
 name: parameter
 def: "Parameter"
-is_a: WC:representation
 is_a: WC:model_element
 xref: SBO:0000002 ! quantitative systems description parameter
 
@@ -145,6 +145,8 @@ name: evidence
 def: "Evidence"
 is_a: WC:model_element
 is_a: WC:provenance
+xref: SEPIO:0000149 ! evidence item
+xref: SEPIO:0000002 ! evidence line
 
 [Term]
 id: WC:interpretation
@@ -152,6 +154,8 @@ name: interpretation
 def: "Interpretation"
 is_a: WC:model_element
 is_a: WC:provenance
+xref: SEPIO:0000000 ! proposition
+xref: SEPIO:0000001 ! assertion
 
 [Term]
 id: WC:reference
@@ -166,6 +170,7 @@ id: WC:author
 name: author
 def: "Author"
 is_a: WC:model_element
+xref: foaf:Person ! Person
 
 [Term]
 id: WC:change
@@ -175,9 +180,17 @@ is_a: WC:model_element
 is_a: WC:provenance
 xref: COMODI:Change
 
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- !!! Compartments
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[Term]
+id: WC:process
+name: process
+def: "Process"
+is_a: WC:model_element
+xref: BFO:0000015 ! process
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Compartments
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:biological_compartment
@@ -230,9 +243,9 @@ def: "3D compartment"
 is_a: WC:geometric_compartment
 
 
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- !!! Species types
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Species types
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:metabolite
@@ -268,9 +281,9 @@ def: "Pseudo-species"
 is_a: WC:species_type
 
 
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- !!! Modeling frameworks
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Modeling frameworks
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:modeling_framework
@@ -305,9 +318,10 @@ is_a: WC:modeling_framework
 xref: SBO:0000624 ! flux balance framework
 xref: kisao:KISAO_0000499 ! dynamic flux balance analysis
 
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- !!! Rate laws
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Rate laws
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:hill_rate_law
@@ -338,9 +352,9 @@ is_a: WC:rate_law
 xref: SBO:0000527 ! modular rate law
 
 
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- !!! Parameters
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Parameters
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:physical_constant
@@ -391,20 +405,21 @@ is_a: WC:kinetic_constant
 xref: SBO:0000261 ! inhibitory constant
 
 
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- !!! Provenance
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Provenance
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:provenance
 name: provenance
 def: "Provenance"
 is_a: WC:representation
+xref: SEPIO:0000058 ! provenance
 
 
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- !!! Evidence
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Evidence
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:experimental_evidence
@@ -424,10 +439,17 @@ name: theoretical evidence
 def: "Theoretical evidence"
 is_a: WC:evidence
 
+[Term]
+id: WC:data_set
+name: data set
+def: "Data set"
+is_a: WC:representation
+xref: IAO:0000100 ! data set
 
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- !!! Interpretation
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Interpretation
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:assumption
@@ -460,9 +482,9 @@ def: "Decision"
 is_a: WC:interpretation
 
 
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- !!! References
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! References
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:article
@@ -470,6 +492,7 @@ name: article
 def: "Article"
 is_a: WC:reference
 xref: BRO:Journal_Article ! Journal Article
+xref: IAO:0000013 ! journal article
 
 [Term]
 id: WC:book
@@ -500,9 +523,9 @@ is_a: WC:reference
 xref: BRO:Thesis ! Thesis
 
 
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- !!! Random distribution
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Random distribution
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:random_distribution
@@ -720,9 +743,10 @@ name: Zipf distribution
 def: "Zipf distribution"
 is_a: WC:random_distribution
 
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- !!! Changes
- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Changes
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:deletion_change_provenance
@@ -898,3 +922,22 @@ name: encoding
 def: "Encoding (e.g. a different or revised file format)"
 is_a: WC:target_provenance
 xref: COMODI:ModelEncoding
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Processes
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:data_generation_process
+name: data generation process
+def: "Data generation process"
+is_a: WC:process
+
+[Term]
+id: WC:data_analysis_process
+name: data analysis process
+def: "Data analysis process"
+is_a: WC:process
+xref: SEPIO:0000037 ! assertion method
+xref: SEPIO:0000003 ! assertion process
