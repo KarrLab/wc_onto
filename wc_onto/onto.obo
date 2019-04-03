@@ -140,41 +140,41 @@ def: "Stop condition"
 is_a: WC:model_element
 
 [Term]
-id: WC:evidence
-name: evidence
-def: "Evidence"
+id: WC:observation
+name: observation
+def: "Observation"
 is_a: WC:model_element
 is_a: WC:provenance
 xref: SEPIO:0000149 ! evidence item
 xref: IAO:0000111 ! data item
 
 [Term]
-id: WC:interpretation
-name: interpretation
-def: "Interpretation"
+id: WC:evidence
+name: evidence
+def: "Evidence"
 is_a: WC:model_element
 is_a: WC:provenance
 xref: SEPIO:0000002 ! evidence line
 
 [Term]
-id: WC:supporting_interpretation
-name: supporting interpretation
-def: "Supporting interpretation"
-is_a: WC:interpretation
+id: WC:supporting_evidence
+name: supporting evidence
+def: "Supporting evidence"
+is_a: WC:evidence
 xref: SEPIO:0000403 ! supporting
 
 [Term]
-id: WC:inconclusive_interpretation
-name: inconclusive interpretation
-def: "Inconclusive interpretation"
-is_a: WC:interpretation
+id: WC:inconclusive_evidence
+name: inconclusive evidence
+def: "Inconclusive evidence"
+is_a: WC:evidence
 xref: SEPIO:0000405 ! inconclusive
 
 [Term]
-id: WC:disputing_interpretation
-name: disputing interpretation
-def: "Disputing interpretation"
-is_a: WC:interpretation
+id: WC:disputing_evidence
+name: disputing evidence
+def: "Disputing evidence"
+is_a: WC:evidence
 xref: SEPIO:0000404 ! disputing
 
 [Term]
@@ -447,26 +447,26 @@ xref: SEPIO:0000058 ! provenance
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! Evidence
+!!! Observation
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: WC:experimental_evidence
-name: experimental evidence
-def: "Experimental evidence"
-is_a: WC:evidence
+id: WC:experimental_observation
+name: experimental observation
+def: "Experimental observation"
+is_a: WC:observation
 
 [Term]
-id: WC:computational_evidence
-name: computational evidence
-def: "Computational evidence"
-is_a: WC:evidence
+id: WC:computational_observation
+name: computational observation
+def: "Computational observation"
+is_a: WC:observation
 
 [Term]
-id: WC:theoretical_evidence
-name: theoretical evidence
-def: "Theoretical evidence"
-is_a: WC:evidence
+id: WC:theoretical_observation
+name: theoretical observation
+def: "Theoretical observation"
+is_a: WC:observation
 
 [Term]
 id: WC:data_set
