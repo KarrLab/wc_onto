@@ -157,6 +157,27 @@ is_a: WC:provenance
 xref: SEPIO:0000002 ! evidence line
 
 [Term]
+id: WC:supporting_interpretation
+name: supporting interpretation
+def: "Supporting interpretation"
+is_a: WC:interpretation
+xref: SEPIO:0000403 ! supporting
+
+[Term]
+id: WC:inconclusive_interpretation
+name: inconclusive interpretation
+def: "Inconclusive interpretation"
+is_a: WC:interpretation
+xref: SEPIO:0000405 ! inconclusive
+
+[Term]
+id: WC:disputing_interpretation
+name: disputing interpretation
+def: "Disputing interpretation"
+is_a: WC:interpretation
+xref: SEPIO:0000404 ! disputing
+
+[Term]
 id: WC:conclusion
 name: conclusion
 def: "Conclusion"
