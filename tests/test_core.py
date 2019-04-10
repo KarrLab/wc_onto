@@ -26,6 +26,7 @@ class CoreTestCase(unittest.TestCase):
 
     def test_import(self):
         self.assertIsInstance(core.onto, pronto.Ontology)
+        self.assertIsInstance(core.kb_onto, pronto.Ontology)
 
     def test_get_dependent_ontologies(self):
         core.get_dependent_ontologies(ontologies={

@@ -99,3 +99,7 @@ get_dependent_ontologies()
 onto = pronto.Ontology(pkg_resources.resource_filename(
     'wc_onto', os.path.join('onto.obo')))
 # :obj:`pronto.Ontology`: whole-cell modeling ontology
+
+kb_onto = pronto.Ontology(pkg_resources.resource_filename(
+    'wc_onto', os.path.join('kb_onto.obo')))
+# :obj:`pronto.Ontology`: whole-cell knowledge base ontology
