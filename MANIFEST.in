@@ -1,5 +1,5 @@
 # ontology
-wc_onto/onto.obo
+recursive-include wc_onto *.obo
 
 # description
 README.rst
