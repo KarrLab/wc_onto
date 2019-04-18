@@ -213,13 +213,13 @@ def: "SpeciesType type: complexes"
 is_a: SpeciesTypeType
 
 [Term]
-id: tRnaSynthClassII
-name: "tRnaSynthClassII"
-def: "tRnaSynthClassII"
+id: TrnaSynthClassIIComplex
+name: "TrnaSynthClassII"
+def: "TrnaSynthClassII"
 is_a: ComplexType
 
 [Term]
-id: FattyAcylAcp
+id: FattyAcylAcpComplex
 name: "FattyAcylAcp"
 def: "FattyAcylAcp"
 is_a: ComplexType
@@ -260,7 +260,7 @@ def: "Metabolism"
 is_a: ComplexFormationType
 
 [Term]
-id: ProteinMo dification
+id: ProteinMo modification
 name: "Protein Modification"
 def: "ProteinModification"
 is_a: ComplexFormationType
@@ -284,13 +284,13 @@ def: "Ribosome Assembly"
 is_a: ComplexFormationType
 
 [Term]
-id: Transcription
+id: TranscriptionComplexFormation
 name: "Transcription"
 def: "Transcription"
 is_a: ComplexFormationType
 
 [Term]
-id: Translation
+id: TranslationComplexFormation
 name: "Translation"
 def: "Translation"
 is_a: ComplexFormationType
@@ -634,31 +634,37 @@ is_a: ReferenceType
 !!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
-id: Transport
+id: ChemicalReaction
+name: "Chemical reaction"
+def: "Chemical reaction"
+is_a: ReactionType
+
+[Term]
+id: TransportReaction
 name: "Transport reaction"
 def: "Transport reaction"
 is_a: ReactionType
 
 [Term]
-id: ModifiedBaseTransport
+id: ModifiedBaseTransportReaction
 name: "Modified base transport reaction"
 def: "Modified base transport reaction"
 is_a: ReactionType
 
 [Term]
-id: IonTransport
+id: IonTransportReaction
 name: "Ion transport reaction"
 def: "Ion transport reaction"
 is_a: ReactionType
 
 [Term]
-id: TrnaTransfer
+id: TrnaTransferReaction
 name: "Trna Transfer Reaction"
 def: "Trna Transfer Reaction"
 is_a: ReactionType
 
 [Term]
-id: TrnaAminoacylation
+id: TrnaAminoacylationReaction
 name: "TrnaAminoacylation Reaction"
 def: "TrnaAminoacylation Reaction"
 is_a: ReactionType
@@ -673,40 +679,46 @@ def: "ProteinModificationReaction"
 is_a: ReactionType
 
 [Term]
-id: OxidationInactivating
+id: ProteinModification:OxidationInactivating
 name: "Oxidation Inactivating Protein Modification"
 def: "Oxidation Inactivating Protein Modification"
 is_a: ProteinTypeModificationReaction
+is_a: ReactionType
 
 [Term]
-id: Adduction
+id: ProteinModification:Adduction
 name: "Protein Modification Adduction"
 def: "Protein Modification Adduction"
 is_a: ProteinTypeModificationReaction
+is_a: ReactionType
 
 [Term]
-id: Ligation
+id: ProteinModification:Ligation
 name: "Protein Modification Ligation"
 def: "Protein Modification Ligation"
 is_a: ProteinTypeModificationReaction
+is_a: ReactionType
 
 [Term]
-id: PhosphorylationInactivating
+id: ProteinModification:Inactivating
 name: "Phosphorylation Inactivating Protein Modification"
 def: "Phosphorylation Inactivating Protein Modification"
 is_a: ProteinTypeModificationReaction
+is_a: ReactionType
 
 [Term]
-id: DephosphorylationActivating
+id: ProteinModification:DephosphorylationActivating
 name: "Dephosphorylation Activating Protein Modification"
 def: "Dephosphorylation Activating Protein Modification"
 is_a: ProteinTypeModificationReaction
+is_a: ReactionType
 
 [Term]
-id: GlycationInactivating
+id: ProteinModification:GlycationInactivating
 name: "Glycation Inactivating Protein Modification"
 def: "Glycation Inactivating Protein Modification"
 is_a: ProteinTypeModificationReaction
+is_a: ReactionType
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!! DNA repair type reaction !!!!!
@@ -718,52 +730,60 @@ def: "DNA repair reaction"
 is_a: ReactionType
 
 [Term]
-id: BaseExcisionRepair
+id: DnaRepair:BaseExcisionRepair
 name: "Base Excision Repair"
 def: "Base Excision Repair"
 is_a: DnaRepairReaction
+is_a: ReactionType
 
 [Term]
-id: DnaLigation
+id: DnaRepair:DnaLigation
 name: "Dna Ligation"
 def: "Dna Ligation"
 is_a: DnaRepairReaction
+is_a: ReactionType
 
 [Term]
-id: DnaPolymerization
+id: DnaRepair:DnaPolymerization
 name: "Dna Polymerization"
 def: "Dna Polymerization"
 is_a: DnaRepairReaction
+is_a: ReactionType
 
 [Term]
-id: DnaCleavage
+id: DnaRepair:DnaCleavage
 name: "Dna Cleavage"
 def: "Dna Cleavage"
 is_a: DnaRepairReaction
+is_a: ReactionType
 
 [Term]
-id: DnaRestrictionModification
+id: DnaRepair:DnaRestrictionModification
 name: "Dna Restriction Modification"
 def: "Dna Restriction Modification"
 is_a: DnaRepairReaction
+is_a: ReactionType
 
 [Term]
-id: HomologousRecombination
+id: DnaRepair:HomologousRecombination
 name: "Homologous Recombination"
 def: "Homologous Recombination"
 is_a: DnaRepairReaction
+is_a: ReactionType
 
 [Term]
-id: NucleotideExcisionRepair
+id: DnaRepair:NucleotideExcisionRepair
 name: "Nucleotide Excision Repair"
 def: "Nucleotide Excision Repair"
 is_a: DnaRepairReaction
+is_a: ReactionType
 
 [Term]
-id: BaseExcisionRepairBaseExcision
+id: DnaRepair:BaseExcision
 name: "Base Excision Repair Base Excision"
 def: "Base Excision Repair Base Excision"
 is_a: DnaRepairReaction
+is_a: ReactionType
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!! DNA damage reactions !!!!!
@@ -773,84 +793,91 @@ id: DnaDamageReaction
 name: "DNA damage reaction"
 def: "DNA damage reaction"
 is_a: ReactionType
+is_a: ReactionType
 
 [Term]
-id: BaseAlkylation
+id: DnaDamage:BaseAlkylation
 name: "Dna Damage Base Alkylation"
 def: "Dna Damage Base Alkylation"
 is_a: DnaDamageReaction
+is_a: ReactionType
 
 [Term]
-id: BaseAlkylation
-name: "Dna Damage Base Alkylation"
-def: "Dna Damage Base Alkylation"
-is_a: DnaDamageReaction
-
-[Term]
-id: BaseEthylation
+id: DnaDamage:BaseEthylation
 name: "Dna Damage Base Ethylation"
 def: "Dna Damage Base Ethylation"
 is_a: DnaDamageReaction
+is_a: ReactionType
 
 [Term]
-id: RadiationInducedBaseOxidation
+id: DnaDamage:RadiationInducedBaseOxidation
 name: "Dna Damage Radiation Induced Base Oxidation "
 def: "Dna Damage Radiation Induced Base Oxidation "
 is_a: DnaDamageReaction
+is_a: ReactionType
 
 [Term]
-id: BaseMethylation
+id: DnaDamage:BaseMethylation
 name: "Dna Damage Base Methylation"
 def: "Dna Damage Base Methylation"
 is_a: DnaDamageReaction
+is_a: ReactionType
 
 [Term]
-id: BaseAmination
+id: DnaDamage:BaseAmination
 name: "Dna Damage Base Amination"
 def: "Dna Damage Base Amination"
 is_a: DnaDamageReaction
+is_a: ReactionType
 
 [Term]
-id: UvBPhotodimerization
+id: DnaDamage:UvBPhotodimerization
 name: "Dna Damage UvB Photodimerization"
 def: "Dna Damage UvB Photodimerization"
 is_a: DnaDamageReaction
+is_a: ReactionType
 
 [Term]
-id: Photooxidation
+id: DnaDamage:PhotoOxidation
 name: "Dna Damage Photooxidation"
 def: "Dna Damage Photooxidation"
 is_a: DnaDamageReaction
+is_a: ReactionType
 
 [Term]
-id: StrandBreak
+id: DnaDamage:StrandBreak
 name: "Dna Damage Strand Break"
 def: "Dna Damage Strand Break"
 is_a: DnaDamageReaction
+is_a: ReactionType
 
 [Term]
-id: BaseGlucosylTransfer
+id: DnaDamage:BaseGlucosylTransfer
 name: "Dna Damage Base Glucosyl Transfer"
 def: "Dna Damage Base Glucosyl Transfer"
 is_a: DnaDamageReaction
+is_a: ReactionType
 
 [Term]
-id: SpontaneousBaseDeamination
+id: DnaDamage:SpontaneousBaseDeamination
 name: "Dna Damage Spontaneous Base Deamination"
 def: "Dna Damage Spontaneous Base Deamination"
 is_a: DnaDamageReaction
+is_a: ReactionType
 
 [Term]
-id: SpontaneousBaseLoss
+id: DnaDamage:SpontaneousBaseLoss
 name: "Dna Damage Spontaneous Base Loss"
 def: "Dna Damage Spontaneous Base Loss"
 is_a: DnaDamageReaction
+is_a: ReactionType
 
 [Term]
-id: BaseReduction
+id: DnaDamage:BaseReduction
 name: "Dna Damage Base Reduction"
 def: "Dna Damage Base Reduction"
 is_a: DnaDamageReaction
+is_a: ReactionType
 
 !!!!!!!!!!!!!!!!!!!!!!!!!
 !!! ValueType types !!!!!
