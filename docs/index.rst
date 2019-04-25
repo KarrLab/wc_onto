@@ -3,6 +3,11 @@ wc_onto documentation
 
 Ontology for whole-cell modeling.
 
+The following example illustrates how to use the ontology in Python::
+    
+    from wc_onto import onto
+    species_term = onto['WC:species']
+
 Contents
 --------
 

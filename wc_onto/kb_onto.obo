@@ -913,13 +913,6 @@ name: "Signal Sequence Type"
 def: "Signal Sequence Type"
 is_a: ValueTypeType
 
-[Term]
-id: Compartment
-name: "WC KB Compartment"
-def: "WC KB Compartment"
-is_a: ValueTypeType
-
-
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
