@@ -1,0 +1,1926 @@
+format-version: 1.4
+data-version: 0.0.1
+date: 14:01:2019 13:00
+saved-by: Jonathan Karr <karr@mssm.edu>
+import: ontologies/BFO.owl ! Basic Formal Ontology
+import: ontologies/BRO.owl ! Biomedical Resource Ontology
+import: ontologies/COMODI.owl ! COmputational MOdels DIffer
+import: ontologies/FOAF.owl ! friend of a friend
+import: ontologies/IAO.owl ! Information Artifact Ontology
+import: ontologies/KISAO.owl ! Kinetic Simulation Algorithm Ontology
+import: ontologies/MATR.owl ! Material
+import: ontologies/SBO.obo ! Systems Biology Ontology
+import: ontologies/SEPIO.owl ! Scientific Evidence and Provenance Information Ontology
+default-namespace: wc
+remark: distributed under the MIT License (https://github.com/KarrLab/wc_lang/blob/master/LICENSE)
+
+[Term]
+id: WC:representation
+name: whole-cell modeling representation
+def: "Representation of an entity used in whole-cell modeling"
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Model element types
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:model_element
+name: model element
+def: "Model element"
+is_a: WC:representation
+
+[Term]
+id: WC:model
+name: model
+def: "Model"
+is_a: WC:model_element
+
+[Term]
+id: WC:taxon
+name: taxon
+def: "Taxon"
+is_a: WC:model_element
+
+[Term]
+id: WC:environment
+name: environment
+def: "Environment"
+is_a: WC:model_element
+
+[Term]
+id: WC:submodel
+name: submodel
+def: "Submodel"
+is_a: WC:model_element
+
+[Term]
+id: WC:compartment
+name: compartment
+def: "Compartment"
+is_a: WC:model_element
+xref: SBO:0000289 ! functional compartment
+
+[Term]
+id: WC:species_type
+name: species type
+def: "Type of species"
+is_a: WC:model_element
+xref: MATR:Compound
+
+[Term]
+id: WC:species
+name: species
+def: "Species"
+is_a: WC:model_element
+
+[Term]
+id: WC:distribution_init_concentration
+name: distribution of initial concentration
+def: "Distribution of initial concentration"
+is_a: WC:model_element
+
+[Term]
+id: WC:observable
+name: observable
+def: "Observable"
+is_a: WC:model_element
+
+[Term]
+id: WC:function
+name: function
+def: "Function"
+is_a: WC:model_element
+xref: SBO:0000064 ! mathematical expression
+
+[Term]
+id: WC:reaction
+name: reaction
+def: "Reaction"
+is_a: WC:model_element
+xref: SBO:0000375 ! process
+xref: SBO:0000167 ! biochemical or transport reaction
+
+[Term]
+id: WC:rate_law
+name: rate law
+def: "Rate law"
+is_a: WC:model_element
+xref: SBO:0000001 ! rate law
+
+[Term]
+id: WC:dfba_objective
+name: dFBA objective
+def: "dFBA objective"
+is_a: WC:model_element
+
+[Term]
+id: WC:dfba_reaction
+name: dFBA reaction
+def: "dFBA reaction"
+is_a: WC:model_element
+
+[Term]
+id: WC:dfba_species
+name: dFBA species
+def: "dFBA species"
+is_a: WC:model_element
+
+[Term]
+id: WC:parameter
+name: parameter
+def: "Parameter"
+is_a: WC:model_element
+xref: SBO:0000002 ! quantitative systems description parameter
+
+[Term]
+id: WC:stop_condition
+name: stop condition
+def: "Stop condition"
+is_a: WC:model_element
+
+[Term]
+id: WC:observation
+name: observation
+def: "Observation"
+is_a: WC:model_element
+is_a: WC:provenance
+xref: SEPIO:0000149 ! evidence item
+xref: IAO:0000111 ! data item
+
+[Term]
+id: WC:evidence
+name: evidence
+def: "Evidence"
+is_a: WC:model_element
+is_a: WC:provenance
+xref: SEPIO:0000002 ! evidence line
+
+[Term]
+id: WC:supporting_evidence
+name: supporting evidence
+def: "Supporting evidence"
+is_a: WC:evidence
+xref: SEPIO:0000403 ! supporting
+
+[Term]
+id: WC:inconclusive_evidence
+name: inconclusive evidence
+def: "Inconclusive evidence"
+is_a: WC:evidence
+xref: SEPIO:0000405 ! inconclusive
+
+[Term]
+id: WC:disputing_evidence
+name: disputing evidence
+def: "Disputing evidence"
+is_a: WC:evidence
+xref: SEPIO:0000404 ! disputing
+
+[Term]
+id: WC:conclusion
+name: conclusion
+def: "Conclusion"
+is_a: WC:model_element
+is_a: WC:provenance
+xref: SEPIO:0000000 ! proposition
+xref: SEPIO:0000001 ! assertion
+
+[Term]
+id: WC:reference
+name: reference
+def: "reference"
+is_a: WC:model_element
+is_a: WC:provenance
+xref: BRO:Information_Resource ! Information Resource
+
+[Term]
+id: WC:author
+name: author
+def: "Author"
+is_a: WC:model_element
+xref: foaf:Person ! Person
+
+[Term]
+id: WC:change
+name: change
+def: "Change"
+is_a: WC:model_element
+is_a: WC:provenance
+xref: COMODI:Change
+
+[Term]
+id: WC:process
+name: process
+def: "Process"
+is_a: WC:model_element
+xref: BFO:0000015 ! process
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Compartments
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:biological_compartment
+name: biological compartment
+def: "Biological compartment"
+is_a: WC:compartment
+
+[Term]
+id: WC:cellular_compartment
+name: cellular compartment
+def: "Cellular compartment"
+is_a: WC:biological_compartment
+xref: sao1337158144 ! Cellular Component
+
+[Term]
+id: WC:extracellular_compartment
+name: extracellular compartment
+def: "Extracellular compartment"
+is_a: WC:biological_compartment
+
+[Term]
+id: WC:physical_compartment
+name: physical compartment
+def: "Physical compartment"
+is_a: WC:compartment
+xref: SBO:0000290 ! physical compartment
+
+[Term]
+id: WC:fluid_compartment
+name: fluid compartment
+def: "Fluid compartment"
+is_a: WC:physical_compartment
+
+[Term]
+id: WC:membrane_compartment
+name: membrane compartment
+def: "Membrane compartment"
+is_a: WC:physical_compartment
+
+[Term]
+id: WC:geometric_compartment
+name: geometric compartment
+def: "Geometric compartment"
+is_a: WC:compartment
+
+[Term]
+id: WC:3D_compartment
+name: 3D compartment
+def: "3D compartment"
+is_a: WC:geometric_compartment
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Species types
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:metabolite
+name: metabolite
+def: "Metabolite"
+is_a: WC:species_type
+xref: SBO:0000299 ! metabolite
+
+[Term]
+id: WC:protein
+name: protein
+def: "Protein"
+is_a: WC:species_type
+
+[Term]
+id: WC:RNA
+name: RNA
+def: "RNA"
+is_a: WC:species_type
+xref: SBO:0000250 ! ribonucleic acid
+
+[Term]
+id: WC:DNA
+name: DNA
+def: "DNA"
+is_a: WC:species_type
+xref: SBO:0000251 ! deoxyribonucleic acid
+
+[Term]
+id: WC:pseudo_species
+name: pseudo-species
+def: "Pseudo-species"
+is_a: WC:species_type
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Modeling frameworks
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:modeling_framework
+name: modeling framework
+def: "Modeling framework"
+is_a: WC:representation
+xref: kisao:KISAO_0000000 ! modelling and simulation algorithm
+
+[Term]
+id: WC:stochastic_simulation_algorithm
+name: stochastic simulation algorithm
+def: "Stochastic simulation algorithm"
+! synonym: "SSA" EXACT
+is_a: WC:modeling_framework
+xref: SBO:0000295 ! non-spatial discrete framework
+xref: kisao:KISAO_0000241 ! Gillespie-like method
+
+[Term]
+id: WC:ordinary_differential_equations
+name: ordinary differential equations
+def: "Ordinary differential equations"
+! synonym: "ODEs" EXACT
+is_a: WC:modeling_framework
+xref: SBO:0000062 ! continuous framework
+
+[Term]
+id: WC:dynamic_flux_balance_analysis
+name: dynamic flux balance analysis
+def: "Dynamic flux balance analysis"
+! synonym: "dFBA" EXACT
+is_a: WC:modeling_framework
+xref: SBO:0000624 ! flux balance framework
+xref: kisao:KISAO_0000499 ! dynamic flux balance analysis
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Rate laws
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:hill_rate_law
+name: hill rate law
+def: "Hill rate law"
+is_a: WC:rate_law
+xref: SBO:0000192 ! Hill-type rate law, generalised form
+
+[Term]
+id: WC:mass_action_rate_law
+name: mass-action rate law
+def: "Mass-action rate law"
+is_a: WC:rate_law
+xref: SBO:0000012 ! mass action rate law
+
+[Term]
+id: WC:Michaelis_Menten_rate_law
+name: Michaelis-Menten rate law
+def: "Michaelis-Menten rate law"
+is_a: WC:rate_law
+xref: SBO:0000029 ! Henri-Michaelis-Menten rate law
+
+[Term]
+id: WC:modular_rate_law
+name: modular rate law
+def: "Modular rate law"
+is_a: WC:rate_law
+xref: SBO:0000527 ! modular rate law
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Parameters
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:physical_constant
+name: physical constant
+def: "Physical constant"
+is_a: WC:parameter
+
+[Term]
+id: WC:kinetic_constant
+name: kinetic constant
+def: "Kinetic constant"
+is_a: WC:parameter
+xref: SBO:0000009 ! kinetic constant
+
+[Term]
+id: WC:K_i
+name: K_i
+def: "K_i"
+is_a: WC:kinetic_constant
+xref: SBO:0000261 ! inhibitory constant
+
+[Term]
+id: WC:k_cat
+name: k_cat
+def: "k_cat"
+is_a: WC:kinetic_constant
+xref: SBO:0000025 ! catalytic rate constant
+
+[Term]
+id: WC:K_m
+name: K_m
+def: "K_m"
+is_a: WC:kinetic_constant
+xref: SBO:0000027 ! Michaelis constant
+
+[Term]
+id: WC:v_max
+name: v_max
+def: "v_max"
+is_a: WC:kinetic_constant
+xref: SBO:0000186 ! maximal velocity
+
+[Term]
+id: WC:K_i
+name: K_i
+def: "K_i"
+is_a: WC:kinetic_constant
+xref: SBO:0000261 ! inhibitory constant
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Provenance
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:provenance
+name: provenance
+def: "Provenance"
+is_a: WC:representation
+xref: SEPIO:0000058 ! provenance
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Observation
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:experimental_observation
+name: experimental observation
+def: "Experimental observation"
+is_a: WC:observation
+
+[Term]
+id: WC:computational_observation
+name: computational observation
+def: "Computational observation"
+is_a: WC:observation
+
+[Term]
+id: WC:theoretical_observation
+name: theoretical observation
+def: "Theoretical observation"
+is_a: WC:observation
+
+[Term]
+id: WC:data_set
+name: data set
+def: "Data set"
+is_a: WC:representation
+xref: IAO:0000100 ! data set
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Conclusion
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:assumption
+name: assumption
+def: "Assumption"
+is_a: WC:conclusion
+
+[Term]
+id: WC:approximation
+name: approximation
+def: "Approximation"
+is_a: WC:conclusion
+
+[Term]
+id: WC:coarse_graining
+name: coarse-graining
+def: "Coarse-graining"
+is_a: WC:approximation
+
+[Term]
+id: WC:computation
+name: computation
+def: "Computation"
+is_a: WC:conclusion
+
+[Term]
+id: WC:decision
+name: decision
+def: "Decision"
+is_a: WC:conclusion
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! References
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:article
+name: article
+def: "Article"
+is_a: WC:reference
+xref: BRO:Journal_Article ! Journal Article
+xref: IAO:0000013 ! journal article
+
+[Term]
+id: WC:book
+name: book
+def: "Book"
+is_a: WC:reference
+xref: BRO:Book ! book
+
+[Term]
+id: WC:website
+name: online
+def: "Online"
+is_a: WC:reference
+xref: BRO:Website ! Website
+
+[Term]
+id: WC:proceedings
+name: proceedings
+def: "Proceedings"
+is_a: WC:reference
+xref: BRO:Conference_Proceeding ! Conference Proceeding
+
+[Term]
+id: WC:thesis
+name: thesis
+def: "Thesis"
+is_a: WC:reference
+xref: BRO:Thesis ! Thesis
+
+[Term]
+id: WC:preprint
+name: "preprint"
+def: "preprint"
+is_a:  WC:reference
+
+[Term]
+id: WC:supplementary material
+name: "supplementary_material"
+def: "supplementary_material"
+is_a:  WC:reference
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Random distribution
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:random_distribution
+name: random distribution
+def: "Random distribution"
+is_a: WC:representation
+
+[Term]
+id: WC:beta_distribution
+name: beta distribution
+def: "Beta distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:binomial_distribution
+name: binomial distribution
+def: "Binomial distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:chi_square_distribution
+name: chi square distribution
+def: "Chi square distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:Dirichlet_distribution
+name: Dirichlet distribution
+def: "Dirichlet distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:exponential_distribution
+name: exponential distribution
+def: "Exponential distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:f_distribution
+name: f distribution
+def: "F distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:gamma_distribution
+name: gamma distribution
+def: "Gamma distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:geometric_distribution
+name: geometric distribution
+def: "Geometric distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:Gumbel_distribution
+name: Gumbel distribution
+def: "Gumbel distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:hypergeometric_distribution
+name: hypergeometric distribution
+def: "Hypergeometric distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:Laplace_distribution
+name: Laplace distribution
+def: "Laplace distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:logisitic_distribution
+name: logisitic distribution
+def: "Logisitic distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:log_normal_distribution
+name: log normal distribution
+def: "Log normal distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:log_series_distribution
+name: log series distribution
+def: "Log series distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:multinomial_distribution
+name: multinomial distribution
+def: "Multinomial distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:multivariate_normal_distribution
+name: multivariate-normal distribution
+def: "Multivariate-normal distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:negative_binomial_distribution
+name: negative-binomial distribution
+def: "Negative-binomial distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:noncentral-chi_square_distribution
+name: noncentral-chi square distribution
+def: "Noncentral-chi square distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:noncentral-f_distribution
+name: noncentral-f distribution
+def: "Noncentral-f distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:normal_distribution
+name: normal distribution
+def: "Normal distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:Pareto_distribution
+name: Pareto distribution
+def: "Pareto distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:Poisson_distribution
+name: Poisson distribution
+def: "Poisson distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:power_distribution
+name: power distribution
+def: "Power distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:Rayleigh_distribution
+name: Rayleigh distribution
+def: "Rayleigh distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:standard-Cauchy_distribution
+name: standard-Cauchy distribution
+def: "Standard-Cauchy distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:standard-exponential_distribution
+name: standard-exponential distribution
+def: "Standard-exponential distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:standard-gamma_distribution
+name: standard-gamma distribution
+def: "Standard-gamma distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:standard-normal_distribution
+name: standard-normal distribution
+def: "Standard-normal distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:standard-t_distribution
+name: standard-t distribution
+def: "Standard-t distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:triangular_distribution
+name: triangular distribution
+def: "Triangular distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:uniform_distribution
+name: uniform distribution
+def: "Uniform distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:Vonmises_distribution
+name: Vonmises distribution
+def: "Vonmises distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:Wald_distribution
+name: Wald distribution
+def: "Wald distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:Weibull_distribution
+name: Weibull distribution
+def: "Weibull distribution"
+is_a: WC:random_distribution
+
+[Term]
+id: WC:Zipf_distribution
+name: Zipf distribution
+def: "Zipf distribution"
+is_a: WC:random_distribution
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Changes
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:deletion_change_provenance
+name: deletion
+def: "Deletion"
+is_a: WC:change
+xref: COMODI:Deletion
+
+[Term]
+id: WC:insertion_change_provenance
+name: insertion
+def: "Insertion"
+is_a: WC:change
+xref: COMODI:Insertion
+
+[Term]
+id: WC:move_change_provenance
+name: move
+def: "Move"
+is_a: WC:change
+xref: COMODI:Move
+
+[Term]
+id: WC:update_change_provenance
+name: update
+def: "Update"
+is_a: WC:change
+xref: COMODI:Update
+
+[Term]
+id: WC:merge_change_provenance
+name: merge
+def: "Merge"
+is_a: WC:change
+
+[Term]
+id: WC:copy_change_provenance
+name: copy
+def: "Copy"
+is_a: WC:change
+
+[Term]
+id: WC:revert_change_provenance
+name: revert
+def: "Revert"
+is_a: WC:change
+
+[Term]
+id: WC:intention_provenance
+name: intention
+def: "Intention"
+is_a: WC:provenance
+xref: COMODI:Intention
+
+[Term]
+id: WC:correct_intention_provenance
+name: correct
+def: "Correct"
+is_a: WC:intention_provenance
+xref: COMODI:Correction
+
+[Term]
+id: WC:elaborate_intention_provenance
+name: elaborate
+def: "Add more detail"
+is_a: WC:intention_provenance
+xref: COMODI:Elaboration
+
+[Term]
+id: WC:expand_intention_provenance
+name: expand
+def: "Expand the scope"
+is_a: WC:intention_provenance
+xref: COMODI:Expansion
+
+[Term]
+id: WC:simplify_intention_provenance
+name: simplify
+def: "Simplify"
+is_a: WC:intention_provenance
+xref: COMODI:Simplification
+
+[Term]
+id: WC:reason_provenance
+name: reason
+def: "Reason"
+is_a: WC:provenance
+xref: COMODI:Reason
+
+[Term]
+id: WC:new_goal_reason_provenance
+name: new goal for a project
+def: "New goal for a project. For example, a new phenotype that a model should predict or a new molecular mechanism that a model should account for"
+is_a: WC:reason_provenance
+
+[Term]
+id: WC:new_knowledge_reason_provenance
+name: new knowledge
+def: "New knowledge"
+is_a: WC:reason_provenance
+xref: COMODI:KnowledgeGain
+
+[Term]
+id: WC:incorrect_interpretation_reason_provenance
+name: incorrect interpretation of existing knowledge
+def: "Incorrect interpretation of existing knowledge"
+is_a: WC:reason_provenance
+xref: COMODI:MismatchWithPublication
+
+[Term]
+id: WC:implementation_error_reason_provenance
+name: implementation error
+def: "Implementation error such as a typo"
+is_a: WC:reason_provenance
+xref: COMODI:Typo
+
+[Term]
+id: WC:migrate_version_reason_provenance
+name: migrate to another version
+def: "Migrate object to another version of a specification"
+is_a: WC:reason_provenance
+xref: COMODI:ChangedSpecification
+
+[Term]
+id: WC:add_metadata_reason_provenance
+name: add metadata
+def: "Add metadata to facilitate comprehension"
+is_a: WC:reason_provenance
+xref: COMODI:ModelCuration
+
+[Term]
+id: WC:target_provenance
+name: target
+def: "Target"
+is_a: WC:provenance
+xref: COMODI:Target
+
+[Term]
+id: WC:data_target_provenance
+name: data
+def: "Data"
+is_a: WC:target_provenance
+
+[Term]
+id: WC:model_target_provenance
+name: model
+def: "Model"
+is_a: WC:data_target_provenance
+xref: COMODI:ModelDefinition
+
+[Term]
+id: WC:model_initial_conditions_target_provenance
+name: initial conditions
+def: "Initial conditions"
+is_a: WC:model_target_provenance
+
+[Term]
+id: WC:model_dynamics_target_provenance
+name: dynamics
+def: "Dynamics"
+is_a: WC:model_target_provenance
+
+[Term]
+id: WC:metadata_target_provenance
+name: metadata
+def: "Metadata"
+is_a: WC:target_provenance
+xref: COMODI:ModelAnnotation
+
+[Term]
+id: WC:encoding_target_provenance
+name: encoding
+def: "Encoding (e.g. a different or revised file format)"
+is_a: WC:target_provenance
+xref: COMODI:ModelEncoding
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Processes
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:data_generation_process
+name: data generation process
+def: "Data generation process"
+is_a: WC:process
+
+[Term]
+id: WC:data_analysis_process
+name: data analysis process
+def: "Data analysis process"
+is_a: WC:process
+xref: SEPIO:0000037 ! assertion method
+xref: SEPIO:0000003 ! assertion process
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+TERMS IMPORTED FROM WC_KB
+
+!!!!!!!!!!!!!!!!!!
+TypeType terms
+
+[Term]
+id: WC:SpeciesTypeType
+name: SpeciesType type
+def: "type of a species type"
+is_a: WC:model_element
+
+[Term]
+id: WC:LociType
+name: Loci type
+def: "Type of polymer location"
+is_a: WC:model_element
+
+[Term]
+id: WC:ReactionType
+name: Reaction type
+def: "type of reaction"
+is_a: WC:model_element
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!! MetaboliteSpecies Types
+
+[Term]
+id: WC:MetaboliteType
+def: "SpeciesType type: metabolite"
+is_a: WC:SpeciesTypeType
+
+[Term]
+id: WC:Vitamin
+name: "Vitamin"
+def: "Vitamin"
+is_a: WC:MetaboliteType
+
+[Term]
+id: WC:AminoAcid
+name: "Amino Acid"
+def: "Amino Acid"
+is_a: WC:MetaboliteType
+
+[Term]
+id: WC:Dipeptide
+name: "Dipeptide"
+def: "Dipeptide"
+is_a: WC:MetaboliteType
+
+[Term]
+id: WC:Nucleobase
+name: "Nucleobase"
+def: "Nucleobase"
+is_a: WC:MetaboliteType
+
+[Term]
+id: WC:ModifiedNucleobase
+name: "Modified Nucleobase"
+def: "Modified Nucleobase"
+is_a: WC:MetaboliteType
+
+[Term]
+id: WC:CarbohydrateSugar
+name: "Carbohydrate Sugar"
+def: "Carbohydrate Sugar"
+is_a: WC:MetaboliteType
+
+[Term]
+id: WC:CarbohydrateSugarPhosphate
+name: "Carbohydrate Sugar Phosphate"
+def: "Carbohydrate Sugar Phosphate"
+is_a: WC:MetaboliteType
+
+[Term]
+id: WC:RibonucleotideMonophosphate
+name: "Ribonucleotide Monophosphate"
+def: "Ribonucleotide Monophosphate"
+is_a: WC:MetaboliteType
+
+[Term]
+id: WC:RibonucleotideBiphosphate
+name: "Ribonucleotide Biphosphate"
+def: "Ribonucleotide Biphosphate"
+is_a: WC:MetaboliteType
+
+[Term]
+id: WC:RibonucleotideTriphosphate
+name: "Ribonucleotide Triphosphate"
+def: "Ribonucleotide Triphosphate"
+is_a: WC:MetaboliteType
+
+[Term]
+id: WC:CarboxyAcid
+name: "Carboxy Acid"
+def: "Carboxy Acid"
+is_a: WC:MetaboliteType
+
+[Term]
+id: WC:ReactiveOxygenSpecies
+name: "Reactive Oxygen Species"
+def: "Reactive Oxygen Species"
+is_a: WC:MetaboliteType
+
+[Term]
+id: WC:Ion
+name: "Ion"
+def: "Ion"
+is_a: WC:MetaboliteType
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!! ProteinSpecies Types !!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:ProteinType
+def: "SpeciesType type: protein"
+is_a: WC:SpeciesTypeType
+
+[Term]
+id: WC:TrnaSynthClassI
+name: "TrnaSynthClassI"
+def: "TrnaSynthClassI"
+is_a: WC:ProteinType
+
+[Term]
+id: WC:TrnaSynthClassIB
+name: "TrnaSynthClassIB"
+def: "TrnaSynthClassIB"
+is_a: WC:ProteinType
+
+[Term]
+id: WC:TrnaSynthClassII
+name: "TrnaSynthClassII"
+def: "TrnaSynthClassII"
+is_a: WC:ProteinType
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!! Complex Types !!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:ComplexType
+def: "SpeciesType type: complexes"
+is_a: WC:SpeciesTypeType
+
+[Term]
+id: WC:TrnaSynthClassIIComplex
+name: "TrnaSynthClassII"
+def: "TrnaSynthClassII"
+is_a: WC:ComplexType
+
+[Term]
+id: WC:FattyAcylAcpComplex
+name: "FattyAcylAcp"
+def: "FattyAcylAcp"
+is_a: WC:ComplexType
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!  ComplexFormation Type !!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:ComplexFormationType
+name: "Complex Formation Type"
+def: "Complex Formation Type"
+is_a: WC:model_element
+
+[Term]
+id: WC:ChromosomeCondensation
+name: "Chromosome Condensation"
+def: "Chromosome Condensation"
+is_a: WC:ComplexFormationType
+
+[Term]
+id: WC:FtsZPolymerization
+name: "FtsZ Polymerization"
+def: "FtsZ Polymerization"
+is_a: WC:ComplexFormationType
+
+[Term]
+id: WC:MacromolecularComplexation
+name: "Macromolecular Complexation"
+def: "Macromolecular Complexation"
+is_a: WC:ComplexFormationType
+
+[Term]
+id: WC:Metabolism
+name: "Metabolism"
+def: "Metabolism"
+is_a: WC:ComplexFormationType
+
+[Term]
+id: WC:ProteinMo modification
+name: "Protein Modification"
+def: "ProteinModification"
+is_a: WC:ComplexFormationType
+
+[Term]
+id: WC:Replication
+name: "Replication"
+def: "Replication"
+is_a: WC:ComplexFormationType
+
+[Term]
+id: WC:ReplicationInitiation
+name: "Replication Initiation"
+def: "Replication Initiation"
+is_a: WC:ComplexFormationType
+
+[Term]
+id: WC:RibosomeAssembly
+name: "Ribosome Assembly"
+def: "Ribosome Assembly"
+is_a: WC:ComplexFormationType
+
+[Term]
+id: WC:TranscriptionComplexFormation
+name: "Transcription"
+def: "Transcription"
+is_a: WC:ComplexFormationType
+
+[Term]
+id: WC:TranslationComplexFormation
+name: "Translation"
+def: "Translation"
+is_a: WC:ComplexFormationType
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!! SignalSequence Types !!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:SignalSequenceType
+name: "Signal Sequence Type"
+def: "Signal Sequence Type"
+is_a: WC:model_element
+
+[Term]
+id: WC:Secretory
+name: "Secretory Signal Sequence Type"
+def: "Secretory Signal Sequence Type"
+is_a: WC:SignalSequenceType
+
+[Term]
+id: WC:LipoProtein
+name: "Lipo Protein Signal Sequence Type"
+def: "Lipo Protein Signal Sequence Type"
+is_a: WC:SignalSequenceType
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!! DnaBinding Type !!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:DnaBindingType
+name: "DnaBinding Type"
+def: "DnaBinding Type"
+is_a: WC:model_element
+
+[Term]
+id: WC:ssDNA
+name: "Single Strand Dna Binding Type"
+def: "Single Strand Dna Binding Type"
+is_a: WC:DnaBindingType
+
+[Term]
+id: WC:dsDNA
+name: "Double Strand Dna Binding Type"
+def: "Double Strand Dna Binding Type"
+is_a: WC:DnaBindingType
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!! ChromosomeFeature Type !!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:ChromosomeFeatureType
+name: "ChromosomeFeature Type"
+def: "ChromosomeFeature Type"
+is_a: WC:model_element
+
+[Term]
+id: WC:LongStructuralRegion
+name: "Long Structural Region"
+def: "Long Structural Region"
+is_a: WC:ChromosomeFeatureType
+
+[Term]
+id: WC:DnaMethylation
+name: "Dna Methylation"
+def: "Dna Methylation"
+is_a: WC:ChromosomeFeatureType
+
+[Term]
+id: WC:GeneWizPrediction
+name: "GeneWiz Prediction"
+def: "GeneWiz Prediction"
+is_a: WC:ChromosomeFeatureType
+
+[Term]
+id: WC:DnaBindingSite
+name: "Dna Binding Site"
+def: "Dna Binding Site"
+is_a: WC:ChromosomeFeatureType
+
+[Term]
+id: WC:DnaBindingSiteLon
+name: "Dna BindingSite Lon"
+def: "Dna BindingSite Lon"
+is_a: WC:ChromosomeFeatureType
+
+[Term]
+id: WC:FunctionalDnaABox
+name: "FunctionalDnaABox"
+def: "FunctionalDnaABox"
+is_a: WC:ChromosomeFeatureType
+
+[Term]
+id: WC:DnaABox
+name: "DnaABox"
+def: "DnaABox"
+is_a: WC:ChromosomeFeatureType
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!! Clusters of Orthologous Groups Type !!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:COGType
+name: "Clusters of Orthologous Groups Type"
+def: "Clusters of Orthologous Groups Type"
+is_a: WC:model_element
+
+[Term]
+id: WC:RnaProcessing
+name: "Rna Processing"
+def: "Rna Processing"
+is_a: WC:COGType
+
+[Term]
+id: WC:ChromatinStructureDynamics
+name: "Chromatin Structure Dynamics"
+def: "Chromatin Structure Dynamics"
+is_a: WC:COGType
+
+[Term]
+id: WC:EnergyProductionConversion
+name: "Energy Production and Conversion"
+def: "Energy Production and Conversion"
+is_a: WC:COGType
+
+[Term]
+id: WC:CellCycleControlMitosis
+name: "Cell Cycle Control and Mitosis"
+def: "Cell Cycle Control and Mitosis"
+is_a: WC:COGType
+
+[Term]
+id: WC:AminoAcidMetabolismTransport
+name: "Amino Acid Metabolism and Transport"
+def: "Amino Acid Metabolism and Transport"
+is_a: WC:COGType
+
+[Term]
+id: WC:NucleotideMetabolismTransport
+name: "Nucleotide Metabolism and Transport"
+def: "Nucleotide Metabolism and Transport"
+is_a: WC:COGType
+
+[Term]
+id: WC:CarbohydrateMetabolismTransport
+name: "Carbohydrate Metabolism and Transport"
+def: "Carbohydrate Metabolism and Transport"
+is_a: WC:COGType
+
+[Term]
+id: WC:CoenzymeMetabolites
+name: "Coenzyme Metabolites"
+def: "Coenzyme Metabolites"
+is_a: WC:COGType
+
+[Term]
+id: WC:LipidMetabolism
+name: "Lipid Metabolism"
+def: "Lipid Metabolism"
+is_a: WC:COGType
+
+[Term]
+id: WC:Tranlsation
+name: "Tranlsation"
+def: "Tranlsation"
+is_a: WC:COGType
+
+[Term]
+id: WC:Transcription
+name: "Transcription"
+def: "Transcription"
+is_a: WC:COGType
+
+[Term]
+id: WC:ReplicationRepair
+name: "Replication Repair"
+def: "Replication Repair"
+is_a: WC:COGType
+
+[Term]
+id: WC:CellWallMembraneEnvelopBiogenesis
+name: "Cell Wall Membrane Envelope Biogenesis"
+def: "Cell Wall Membrane Envelope Biogenesis"
+is_a: WC:COGType
+
+[Term]
+id: WC:CellMotility
+name: "Cell Motility"
+def: "Cell Motility"
+is_a: WC:COGType
+
+[Term]
+id: WC:SecondaryStructure
+name: "Secondary Structure "
+def: "Secondary Structure "
+is_a: WC:COGType
+
+[Term]
+id: WC:PostTranslationalModification
+name: "Post Translational Modification"
+def: "Post Translational Modification"
+is_a: WC:COGType
+
+[Term]
+id: WC:InorganicIonTransport
+name: "Inorganic Ion Transport"
+def: "Inorganic Ion Transport"
+is_a: WC:COGType
+
+[Term]
+id: WC:SignalTransduction
+name: "Signal Transduction"
+def: "Signal Transduction"
+is_a: WC:COGType
+
+[Term]
+id: WC:IntracellularTrafficingSecretion
+name: "Intracellular Trafficing Secretion"
+def: "Intracellular Trafficing Secretion"
+is_a: WC:COGType
+
+[Term]
+id: WC:NuclearStructure
+name: "Nuclear Structure"
+def: "Nuclear Structure"
+is_a: WC:COGType
+
+[Term]
+id: WC:Cytoskeleton
+name: "Cytoskeleton"
+def: "Cytoskeleton"
+is_a: WC:COGType
+
+
+!!!!!!!!!!!!!!!!!!!
+!!! Rna types !!!!!
+!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:RnaType
+def: "SpeciesType type: RNA"
+is_a: WC:SpeciesTypeType
+
+[Term]
+id: WC:mRna
+name: "messenger Rna"
+def: "messenger Rna"
+is_a: WC:RnaType
+
+[Term]
+id: WC:rRna
+name: "ribosomal Rna"
+def: "ribosomal Rna"
+is_a: WC:Gene
+is_a: WC:RnaType
+
+[Term]
+id: WC:sRna
+name: "small Rna"
+def: "small Rna"
+is_a: WC:RnaType
+
+[Term]
+id: WC:tRna
+name: "transport Rna"
+def: "transport Rna"
+is_a: WC:RnaType
+
+[Term]
+id: WC:asRrna
+name: "anti-sense Rna"
+def: "anti-sense Rna"
+is_a: WC:RnaType
+
+[Term]
+id: WC:mixed
+name: "mixed Rna"
+def: "mixed Rna"
+is_a: WC:RnaType
+
+[Term]
+id: WC:intergenic
+name: "intergenic Rna"
+def: "intergenic Rna"
+is_a: WC:RnaType
+
+[Term]
+id: WC:pseudogene
+name: "pseudogene"
+def: "pseudogene"
+is_a: WC:RnaType
+
+!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Reaction types
+
+[Term]
+id: WC:ChemicalReaction
+name: "Chemical reaction"
+def: "Chemical reaction"
+is_a: WC:ReactionType
+
+[Term]
+id: WC:TransportReaction
+name: "Transport reaction"
+def: "Transport reaction"
+is_a: WC:ReactionType
+
+[Term]
+id: WC:ModifiedBaseTransportReaction
+name: "Modified base transport reaction"
+def: "Modified base transport reaction"
+is_a: WC:ReactionType
+
+[Term]
+id: WC:IonTransportReaction
+name: "Ion transport reaction"
+def: "Ion transport reaction"
+is_a: WC:ReactionType
+
+[Term]
+id: WC:TrnaTransferReaction
+name: "Trna Transfer Reaction"
+def: "Trna Transfer Reaction"
+is_a: WC:ReactionType
+
+[Term]
+id: WC:TrnaAminoacylationReaction
+name: "TrnaAminoacylation Reaction"
+def: "TrnaAminoacylation Reaction"
+is_a: WC:ReactionType
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!! Protein modification reactions !!!!!
+
+[Term]
+id: WC:ProteinModificationReaction
+name: "ProteinModificationReaction"
+def: "ProteinModificationReaction"
+is_a: WC:ReactionType
+
+[Term]
+id: WC:ProteinModification:OxidationInactivating
+name: "Oxidation Inactivating Protein Modification"
+def: "Oxidation Inactivating Protein Modification"
+is_a: WC:ProteinTypeModificationReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:ProteinModification:Adduction
+name: "Protein Modification Adduction"
+def: "Protein Modification Adduction"
+is_a: WC:ProteinTypeModificationReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:ProteinModification:Ligation
+name: "Protein Modification Ligation"
+def: "Protein Modification Ligation"
+is_a: WC:ProteinTypeModificationReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:ProteinModification:Inactivating
+name: "Phosphorylation Inactivating Protein Modification"
+def: "Phosphorylation Inactivating Protein Modification"
+is_a: WC:ProteinTypeModificationReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:ProteinModification:DephosphorylationActivating
+name: "Dephosphorylation Activating Protein Modification"
+def: "Dephosphorylation Activating Protein Modification"
+is_a: WC:ProteinTypeModificationReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:ProteinModification:GlycationInactivating
+name: "Glycation Inactivating Protein Modification"
+def: "Glycation Inactivating Protein Modification"
+is_a: WC:ProteinTypeModificationReaction
+is_a: WC:ReactionType
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!! DNA repair type reaction !!!!!
+
+[Term]
+id: WC:DnaRepairReaction
+name: "DNA repair reaction"
+def: "DNA repair reaction"
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaRepair:BaseExcisionRepair
+name: "Base Excision Repair"
+def: "Base Excision Repair"
+is_a: WC:DnaRepairReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaRepair:DnaLigation
+name: "Dna Ligation"
+def: "Dna Ligation"
+is_a: WC:DnaRepairReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaRepair:DnaPolymerization
+name: "Dna Polymerization"
+def: "Dna Polymerization"
+is_a: WC:DnaRepairReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaRepair:DnaCleavage
+name: "Dna Cleavage"
+def: "Dna Cleavage"
+is_a: WC:DnaRepairReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaRepair:DnaRestrictionModification
+name: "Dna Restriction Modification"
+def: "Dna Restriction Modification"
+is_a: WC:DnaRepairReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaRepair:HomologousRecombination
+name: "Homologous Recombination"
+def: "Homologous Recombination"
+is_a: WC:DnaRepairReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaRepair:NucleotideExcisionRepair
+name: "Nucleotide Excision Repair"
+def: "Nucleotide Excision Repair"
+is_a: WC:DnaRepairReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaRepair:BaseExcision
+name: "Base Excision Repair Base Excision"
+def: "Base Excision Repair Base Excision"
+is_a: WC:DnaRepairReaction
+is_a: WC:ReactionType
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!! DNA damage reactions !!!!!
+
+[Term]
+id: WC:DnaDamageReaction
+name: "DNA damage reaction"
+def: "DNA damage reaction"
+is_a: WC:ReactionType
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaDamage:BaseAlkylation
+name: "Dna Damage Base Alkylation"
+def: "Dna Damage Base Alkylation"
+is_a: WC:DnaDamageReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaDamage:BaseEthylation
+name: "Dna Damage Base Ethylation"
+def: "Dna Damage Base Ethylation"
+is_a: WC:DnaDamageReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaDamage:RadiationInducedBaseOxidation
+name: "Dna Damage Radiation Induced Base Oxidation "
+def: "Dna Damage Radiation Induced Base Oxidation "
+is_a: WC:DnaDamageReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaDamage:BaseMethylation
+name: "Dna Damage Base Methylation"
+def: "Dna Damage Base Methylation"
+is_a: WC:DnaDamageReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaDamage:BaseAmination
+name: "Dna Damage Base Amination"
+def: "Dna Damage Base Amination"
+is_a: WC:DnaDamageReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaDamage:UvBPhotodimerization
+name: "Dna Damage UvB Photodimerization"
+def: "Dna Damage UvB Photodimerization"
+is_a: WC:DnaDamageReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaDamage:PhotoOxidation
+name: "Dna Damage Photooxidation"
+def: "Dna Damage Photooxidation"
+is_a: WC:DnaDamageReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaDamage:StrandBreak
+name: "Dna Damage Strand Break"
+def: "Dna Damage Strand Break"
+is_a: WC:DnaDamageReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaDamage:BaseGlucosylTransfer
+name: "Dna Damage Base Glucosyl Transfer"
+def: "Dna Damage Base Glucosyl Transfer"
+is_a: WC:DnaDamageReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaDamage:SpontaneousBaseDeamination
+name: "Dna Damage Spontaneous Base Deamination"
+def: "Dna Damage Spontaneous Base Deamination"
+is_a: WC:DnaDamageReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaDamage:SpontaneousBaseLoss
+name: "Dna Damage Spontaneous Base Loss"
+def: "Dna Damage Spontaneous Base Loss"
+is_a: WC:DnaDamageReaction
+is_a: WC:ReactionType
+
+[Term]
+id: WC:DnaDamage:BaseReduction
+name: "Dna Damage Base Reduction"
+def: "Dna Damage Base Reduction"
+is_a: WC:DnaDamageReaction
+is_a: WC:ReactionType
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!! EUKARYOTE ONTOLOGY !!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!! RegulatoryElementType !!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:RegulatoryElementType
+name: "Regulatory Element Type"
+def: "Regulatory Element Type"
+is_a: WC:model_element
+
+[Term]
+id: WC:Promoter
+name: "Promoter"
+def: "Promoter"
+is_a: WC:RegulatoryElementType
+
+[Term]
+id: WC:PromoterFlankingRegion
+name: "Promoter Flanking Region"
+def: "Promoter Flanking Region"
+is_a: WC:RegulatoryElementType
+
+[Term]
+id: WC:Enhancer
+name: "Enhancer"
+def: "Enhancer"
+is_a: WC:RegulatoryElementType
+
+[Term]
+id: WC:CTCFBindingSite
+name: "CTCF Binding Site"
+def: "CTCF Binding Site"
+is_a: WC:RegulatoryElementType
+
+[Term]
+id: WC:TFBindingSite
+name: "TF Binding Site"
+def: "TF Binding Site"
+is_a: WC:RegulatoryElementType
+
+[Term]
+id: WC:OpenChromatinRegion
+name: "Open Chromatin Region"
+def: "Open Chromatin Region"
+is_a: WC:RegulatoryElementType
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!! Activity Level Type !!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:ActivityLevelType
+name: "Activity Level Type"
+def: "Activity Level Type"
+is_a: WC:model_element
+
+[Term]
+id: WC:active
+name: "Active"
+def: "Active"
+is_a: WC:ActivityLevelType
+
+[Term]
+id: WC:poised
+name: "Poised"
+def: "Poised"
+is_a: WC:ActivityLevelType
+
+[Term]
+id: WC:repressed
+name: "Repressed"
+def: "Repressed"
+is_a: WC:ActivityLevelType
+
+[Term]
+id: WC:inactive
+name: "Inactive"
+def: "Inactive"
+is_a: WC:ActivityLevelType
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!! Regulation Type !!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:RegulationType
+name: "RegulationType"
+def: "RegulationType"
+is_a: WC:model_element
+
+[Term]
+id: WC:Proximal
+name: "Proximal"
+def: "Proximal"
+is_a: WC:RegulationType
+
+[Term]
+id: WC:Distal
+name: "Distal"
+def: "Distal"
+is_a: WC:RegulationType
+
+
+!!!!!!!!!!!!!!!!!!!!
+!!! Gene types !!!!!
+!!!!!!!!!!!!!!!!!!!!
+
+[Term]
+id: WC:GeneType
+def: "Loci type: gene"
+is_a: WC:LociType
+
+[Term]
+id: WC:asRrna
+name: "anti-sense Rna"
+def: "anti-sense Rna"
+is_a: WC:GeneType
+
+[Term]
+id: WC:mRna
+name: "messenger Rna"
+def: "messenger Rna"
+is_a: WC:GeneType
+
+[Term]
+id: WC:rRna
+name: "ribosomal Rna"
+def: "ribosomal Rna"
+is_a: WC:Gene
+is_a: WC:GeneType
+
+[Term]
+id: WC:sRna
+name: "small Rna"
+def: "small Rna"
+is_a: WC:GeneType
+
+[Term]
+id: WC:tRna
+name: "transport Rna"
+def: "transport Rna"
+is_a: WC:GeneType
+
+[Term]
+id: WC:pseudogene
+name: "pseudogene"
+def: "pseudogene"
+is_a: WC:GeneType
+
+[Term]
+id: WC:mixed
+name: "mixed Rna"
+def: "mixed Rna"
+is_a: WC:GeneType
+
+[Term]
+id: WC:intergenic
+name: "intergenic Rna"
+def: "intergenic Rna"
+is_a: WC:GeneType
