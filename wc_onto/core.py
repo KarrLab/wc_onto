@@ -62,7 +62,7 @@ DEPENDENT_ONTOLOGIES_DIR = pkg_resources.resource_filename('wc_onto', 'ontologie
 
 
 def get_dependent_ontologies(ontologies=DEPENDENT_ONTOLOGIES, dir=DEPENDENT_ONTOLOGIES_DIR):
-    """ Download dependent ontologies 
+    """ Download dependent ontologies
 
     Args:
         ontologies (:obj:`dict`, optional): dictionary that maps ids of ontologies to information about where to obtain them
@@ -99,7 +99,3 @@ get_dependent_ontologies()
 onto = pronto.Ontology(pkg_resources.resource_filename(
     'wc_onto', os.path.join('onto.obo')))
 # :obj:`pronto.Ontology`: whole-cell modeling ontology
-
-kb_onto = pronto.Ontology(pkg_resources.resource_filename(
-    'wc_onto', os.path.join('kb_onto.obo')))
-# :obj:`pronto.Ontology`: whole-cell knowledge base ontology
