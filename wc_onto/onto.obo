@@ -1451,40 +1451,85 @@ is_a: WC:RNA
 !!! reaction types
 
 [Term]
-id: WC:chemicalreaction
+id: WC:chemicalReaction
 name: Chemical reaction
 def: "Chemical reaction"
 is_a: WC:reaction
 
 [Term]
-id: WC:transportreaction
+id: WC:transportReaction
 name: Transport reaction
 def: "Transport reaction"
 is_a: WC:reaction
 
 [Term]
-id: WC:modifiedBaseTransportreaction
+id: WC:modifiedBaseTransportReaction
 name: Modified base transport reaction
 def: "Modified base transport reaction"
 is_a: WC:reaction
 
 [Term]
-id: WC:ionTransportreaction
+id: WC:ionTransportReaction
 name: Ion transport reaction
 def: "Ion transport reaction"
 is_a: WC:reaction
 
 [Term]
-id: WC:TRNATransferreaction
+id: WC:TRNATransferReaction
 name: tRRNA transfer reaction
 def: "TRNA Transfer reaction"
 is_a: WC:reaction
 
 [Term]
-id: WC:TRNAAminoacylationreaction
+id: WC:TRNAAminoacylationReaction
 name: tRNA aminoacylation reaction
 def: "TRNAAminoacylation reaction"
 is_a: WC:reaction
+
+!!!!!!!!!!!!!!!!!
+!!! protein modification reactions
+
+[Term]
+id: WC:proteinModificationReaction
+name: protein modification reaction
+def: "protein modification reaction"
+is_a: WC:reaction
+
+[Term]
+id: WC:oxidationInactivating
+name: oxidation Inactivating Protein Modification
+def: "oxidation Inactivating Protein Modification"
+is_a: WC:proteinModificationReaction
+
+[Term]
+id: WC:adduction
+name: protein Modification Adduction
+def: "Protein Modification Adduction"
+is_a: WC:proteinModificationReaction
+
+[Term]
+id: WC:ligation
+name: protein Modification Ligation
+def: "Protein Modification Ligation"
+is_a: WC:proteinModificationReaction
+
+[Term]
+id: WC:inactivating
+name: phosphorylation Inactivating Protein Modification
+def: "Phosphorylation Inactivating Protein Modification"
+is_a: WC:proteinModificationReaction
+
+[Term]
+id: WC:dephosphorylationActivating
+name: dephosphorylation Activating Protein Modification
+def: "Dephosphorylation Activating Protein Modification"
+is_a: WC:proteinModificationReaction
+
+[Term]
+id: WC:glycationInactivating
+name: glycation Inactivating Protein Modification
+def: "Glycation Inactivating Protein Modification"
+is_a: WC:proteinModificationReaction
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -1528,12 +1573,12 @@ is_a: WC:DNARepairreaction
 
 [Term]
 id: WC:homologousRecombination
-name: Homologous Recombination
+name: Homologous Recombinationon
 def: "Homologous Recombination"
 is_a: WC:DNARepairreaction
 
 [Term]
-id: WC:NucleotideExcisionRepair
+id: WC:nucleotideExcisionRepair
 name: Nucleotide Excision Repair
 def: "Nucleotide Excision Repair"
 is_a: WC:DNARepairreaction
