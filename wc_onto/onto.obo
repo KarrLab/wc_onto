@@ -1495,6 +1495,7 @@ name: protein modification reaction
 def: "protein modification reaction"
 is_a: WC:reaction
 
+
 [Term]
 id: WC:oxidationInactivating
 name: oxidation Inactivating Protein Modification
