@@ -28,6 +28,7 @@ name: model element
 def: "model element"
 is_a: WC
 
+
 [Term]
 id: WC:species_type
 name: species_type
@@ -1433,6 +1434,12 @@ is_a: WC:RNA
 id: WC:asRNA
 name: anti-sense RNA
 def: "anti-sense RNA"
+is_a: WC:RNA
+
+[Term]
+id: WC:ncRNA
+name: non-coding RNA
+def: "non-coding RNA"
 is_a: WC:RNA
 
 [Term]
