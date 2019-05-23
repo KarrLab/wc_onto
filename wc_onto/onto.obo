@@ -1264,6 +1264,12 @@ name: DNAABox
 def: "DNAABox"
 is_a: WC:chromosomeFeature
 
+[Term]
+id: WC:DNAMethylationSite
+name: DNA Methylation site
+def: "DNA Methylation site"
+is_a: WC:chromosomeFeature
+
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!! Clusters of Orthologous Groups Type !!!!!
