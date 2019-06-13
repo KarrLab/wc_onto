@@ -6,55 +6,46 @@
 :License: MIT
 """
 
-import wc_onto.config.core
 import os
 import pkg_resources
 import pronto
 import requests
 
-bio_portal_api_key = wc_onto.config.core.get_config()['wc_onto']['bioportal']['key']
-
 DEPENDENT_ONTOLOGIES = {
     'BFO': {
-        'url': 'https://raw.githubusercontent.com/BFO-ontology/BFO/master/releases/2.0/bfo.owl',
+        'url': 'http://purl.obolibrary.org/obo/bfo.owl',
         'format': 'owl',
     },
     'BRO': {
-        'url': 'http://data.bioontology.org/ontologies/BRO/download',
-        'format': 'owl',
-        'params': {
-            'headers': {'Authorization': 'apikey token=' + bio_portal_api_key},
-        },
+        'url': 'http://purl.obolibrary.org/obo/bro.owl',
+        'format': 'owl'
     },
     'COMODI': {
-        'url': 'https://raw.githubusercontent.com/binfalse/COMODI/master/ontology/comodi.owl',
+        'url': 'http://purl.obolibrary.org/obo/comodi.owl',
         'format': 'owl',
     },
     'FOAF': {
-        'url': 'http://xmlns.com/foaf/spec/index.rdf',
+        'url': 'http://purl.obolibrary.org/obo/foaf.rdf',
         'format': 'owl',
     },
     'IAO': {
-        'url': 'https://raw.githubusercontent.com/information-artifact-ontology/IAO/master/src/ontology/iao.owl',
+        'url': 'http://purl.obolibrary.org/obo/iao.owl',
         'format': 'owl',
     },
     'KISAO': {
-        'url': 'http://svn.code.sf.net/p/kisao/code/tags/kisao-owl-latest/kisao_full.owl',
+        'url': 'http://purl.obolibrary.org/obo/kisao.owl',
         'format': 'owl',
     },
     'MATR': {
-        'url': 'http://data.bioontology.org/ontologies/MATR/download',
+        'url': 'http://purl.obolibrary.org/obo/matr.owl',
         'format': 'owl',
-        'params': {
-            'headers': {'Authorization': 'apikey token=' + bio_portal_api_key},
-        },
     },
     'SBO': {
-        'url': 'http://www.ebi.ac.uk/sbo/exports/Main/SBO_OBO.obo',
+        'url': 'http://purl.obolibrary.org/obo/sbo.obo',
         'format': 'obo',
     },
     'SEPIO': {
-        'url': 'https://raw.githubusercontent.com/monarch-initiative/SEPIO-ontology/master/src/ontology/sepio.owl',
+        'url': 'http://purl.obolibrary.org/obo/sepio.owl',
         'format': 'owl',
     },
 }
