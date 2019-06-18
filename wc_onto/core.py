@@ -10,6 +10,8 @@ import os
 import pkg_resources
 import pronto
 import requests
+import urllib
+import warnings
 
 DEPENDENT_ONTOLOGIES = {
     'BFO': {
@@ -78,11 +80,17 @@ def get_ontology(id, source, dir=DEPENDENT_ONTOLOGIES_DIR):
     if os.path.isfile(path):
         return
 
+    session = requests.Session()
+    parsed_url = urllib.parse.urlparse(source['url'])
+    session.mount(parsed_url.scheme + '://' + parsed_url.netloc, requests.adapters.HTTPAdapter(max_retries=5))
     params = source.get('params', {})
-    response = requests.get(source['url'], **params)
-    response.raise_for_status()
-    with open(path, 'wb') as file:
-        file.write(response.content)
+    response = session.get(source['url'], **params)
+
+    if response.status_code >= 200 and response.status_code < 300:
+        with open(path, 'wb') as file:
+            file.write(response.content)
+    else:
+        warnings.warn('Unable to download dependent ontology: {}: {}'.format(response.status_code, response.reason), UserWarning)
 
 
 get_dependent_ontologies()

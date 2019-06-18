@@ -7,8 +7,10 @@
 """
 
 from wc_onto import core
+import mock
 import os
 import pronto
+import requests
 import shutil
 import tempfile
 import unittest
@@ -34,3 +36,11 @@ class CoreTestCase(unittest.TestCase):
         core.get_dependent_ontologies(ontologies={
             'BRO': core.DEPENDENT_ONTOLOGIES['BRO'],
         }, dir=self.tempdir)
+
+    def test_get_dependent_ontologies_warning(self):
+        with self.assertWarnsRegex(UserWarning, 'Not ok'):
+            with mock.patch.object(requests.Session, 'get', return_value=mock.Mock(status_code=300, reason='Not ok')):
+                core.get_ontology('test', {
+                    'url': 'https://test.org/does_not_exist',
+                    'format': 'owl',
+                }, dir=self.tempdir)
