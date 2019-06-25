@@ -84,13 +84,17 @@ def get_ontology(id, source, dir=DEPENDENT_ONTOLOGIES_DIR):
     parsed_url = urllib.parse.urlparse(source['url'])
     session.mount(parsed_url.scheme + '://' + parsed_url.netloc, requests.adapters.HTTPAdapter(max_retries=5))
     params = source.get('params', {})
-    response = session.get(source['url'], **params)
+    try:
+        response = session.get(source['url'], **params)
+    except requests.exceptions.ConnectionError:
+        warnings.warn('Unable to download dependent ontology {}'.format(id), UserWarning)
+        return
 
     if response.status_code >= 200 and response.status_code < 300:
         with open(path, 'wb') as file:
             file.write(response.content)
     else:
-        warnings.warn('Unable to download dependent ontology: {}: {}'.format(response.status_code, response.reason), UserWarning)
+        warnings.warn('Unable to download dependent ontology {}: {}: {}'.format(id, response.status_code, response.reason), UserWarning)
 
 
 get_dependent_ontologies()
