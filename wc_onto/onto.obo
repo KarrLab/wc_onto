@@ -1862,3 +1862,114 @@ id: WC:signalSequenceType
 name: signal sequence type
 def: "signal sequence type"
 is_a: WC:valueType
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! time-course-incorporation
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+!import: ontologies/BAO.owl ! BioAssay Ontology
+!import: ontologies/GO.obo ! Gene Ontology
+!import: ontologies/GRO.owl ! Gene Regulation Ontology
+!import: ontologies/HINO.owl ! Human Interaction Network Ontology
+!import: ontologies/IEV.owl ! Pathway Terminology System
+!import: ontologies/MAMO.owl ! Mathematical Modelling Ontology
+!import: ontologies/OGMS.owl ! Ontology for General Medical Science
+!import: ontologies/PATO.owl ! Phenotypic Quality Ontology
+!import: ontologies/CMPO.owl ! Cellular Microscopy Phenotype Ontology
+
+[Term]
+id: WC:experiment
+name: experiment
+is_a: WC
+
+[Term]
+id: WC:time_course
+name: time course
+is_a: WC:experiment
+xref: BAO:0002071 ! time course profile
+xref: MAMO:0000031 ! timecourse
+
+[Term]
+id: WC:cell_cycle
+name: cell cycle
+is_a: WC:time_course
+xref: GO:0007049 ! cell cycle
+xref: GRO:CellCycle ! cell cycle
+xref: IEV:0000077 ! cell cycle
+
+[Term]
+id: WC:life_course
+name: life course
+is_a: WC:time_course
+xref: OGMS:0000092 ! life course
+
+[Term]
+id: WC:perturbation_course
+name: perturbation course
+is_a: WC:time_course
+
+
+[Term]
+id: WC:time
+name: time
+is_a: WC
+xref: PATO:0000165 ! time
+
+[Term]
+id: WC:perturbation
+name: time at which perturbation is applied
+is_a: WC:time
+
+[Term]
+id: WC:g1_s_checkpoint
+name: G1/S checkpoint
+is_a: WC:time
+xref: GO:0044819 ! mitotic G1/S transition checkpoint
+
+[Term]
+id: WC:g2_m_checkpoint
+name: G2/M checkpoint
+is_a: WC:time
+xref: GO:0044818 ! mitotic G2/M transition checkpoint
+
+[Term]
+id: WC:spindle_checkpoint
+name: spindle checkpoint
+is_a: WC:time
+xref: HINO:0017880 ! Mitotic Spindle Checkpoint
+xref: GO:0031577 ! spindle checkpoint
+
+[Term]
+id: WC:cell_division
+name: cell division
+is_a: WC:time
+xref: GO:0051301
+xref: GRO:CellDivision
+xref: IEV:0003382
+
+[Term]
+id: WC:steady_state
+name: steady state
+is_a: WC:time
+xref: MAMO:0000085 ! steady state value
+
+
+
+[Term]
+id: WC:phenotype
+name: phenotype
+is_a: WC
+
+[Term]
+id: WC:mitosis_arrested
+name: mitosis arrested
+is_a: WC:phenotype
+xref: CMPO:0000338 ! mitosis arrested
+
+[Term]
+id: WC:cell_death
+name: cell death
+is_a: WC:phenotype
+xref: CMPO:0008219 ! cell_death
