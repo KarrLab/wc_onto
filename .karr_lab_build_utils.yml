@@ -4,7 +4,7 @@ downstream_dependencies:
   - datanator
   - h1_hesc
   - mycoplasma_pneumoniae
-  - obj_model
+  - obj_tables
   - wc_analysis
   - wc_lang
   - wc_model_gen
