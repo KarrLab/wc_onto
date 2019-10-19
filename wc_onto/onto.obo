@@ -325,6 +325,15 @@ xref: SBO:0000295 ! non-spatial discrete framework
 xref: kisao:KISAO_0000241 ! Gillespie-like method
 
 [Term]
+id: WC:deterministic_simulation_algorithm
+name: deterministic simulation algorithm
+def: "deterministic simulation algorithm"
+! synonym: "DSA" EXACT
+is_a: WC:modeling_framework
+xref: SBO:0000295 ! non-spatial discrete framework
+xref: kisao:KISAO_0000241 ! Gillespie-like method
+
+[Term]
 id: WC:ordinary_differential_equations
 name: ordinary differential equations
 def: "Ordinary differential equations"
