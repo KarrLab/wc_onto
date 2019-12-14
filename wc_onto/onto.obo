@@ -254,6 +254,12 @@ def: "Membrane compartment"
 is_a: WC:physical_compartment
 
 [Term]
+id: WC:abstract_compartment
+name: abstract compartment
+def: "Compartment with fixed volume, and no requirement that density = mass / volume"
+is_a: WC:physical_compartment
+
+[Term]
 id: WC:geometric_compartment
 name: geometric compartment
 def: "Geometric compartment"
@@ -263,12 +269,6 @@ is_a: WC:compartment
 id: WC:3D_compartment
 name: 3D compartment
 def: "3D compartment"
-is_a: WC:geometric_compartment
-
-[Term]
-id: WC:abstract_compartment
-name: abstract compartment
-def: "Compartment with fixed volume, and no requirement that density = mass / volume"
 is_a: WC:geometric_compartment
 
 
