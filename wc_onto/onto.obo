@@ -265,6 +265,12 @@ name: 3D compartment
 def: "3D compartment"
 is_a: WC:geometric_compartment
 
+[Term]
+id: WC:abstract_compartment
+name: abstract compartment
+def: "Compartment with fixed volume, and no requirement that density = mass / volume"
+is_a: WC:geometric_compartment
+
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Species types
