@@ -256,7 +256,7 @@ is_a: WC:physical_compartment
 [Term]
 id: WC:abstract_compartment
 name: abstract compartment
-def: "Compartment with fixed volume, and no requirement that density = mass / volume"
+def: "Compartment that doesn't contain physical matter with properties like density = mass/volume; the volume is fixed"
 is_a: WC:physical_compartment
 
 [Term]
