@@ -1,153 +1,152 @@
-!format-version: 1.4
-!data-version: 0.0.1
-!date: 14:01:2019 13:00
-!saved-by: Jonathan Karr <karr@mssm.edu>
-!import: ontologies/BFO.owl ! Basic Formal Ontology
-!import: ontologies/BRO.owl ! Biomedical Resource Ontology
-!import: ontologies/COMODI.owl ! COmputational MOdels DIffer
-!import: ontologies/FOAF.owl ! friend of a friend
-!import: ontologies/IAO.owl ! Information Artifact Ontology
-!import: ontologies/KISAO.owl ! Kinetic Simulation Algorithm Ontology
-!import: ontologies/MATR.owl ! Material
-!import: ontologies/SBO.obo ! Systems Biology Ontology
-!import: ontologies/SEPIO.owl ! Scientific Evidence and provenance Information Ontology
-!remark: distributed under the MIT License (https://github.com/KarrLab/wc_lang/blob/master/LICENSE)
+format-version: 1.4
+data-version: 0.0.1
+date: 14:01:2019 13:00
+saved-by: Jonathan Karr <karr@mssm.edu>
+import: ontologies/BFO.owl ! Basic Formal Ontology
+import: ontologies/BRO.owl ! Biomedical Resource Ontology
+import: ontologies/COMODI.owl ! COmputational MOdels DIffer
+import: ontologies/FOAF.rdf ! friend of a friend
+import: ontologies/IAO.owl ! Information Artifact Ontology
+import: ontologies/KISAO.owl ! Kinetic Simulation Algorithm Ontology
+import: ontologies/MATR.rdf ! Material
+import: ontologies/SBO.owl ! Systems Biology Ontology
+import: ontologies/SEPIO.owl ! Scientific Evidence and provenance Information Ontology
+remark: distributed under the MIT License (https://github.com/KarrLab/wc_lang/blob/master/LICENSE)
 
 default-namespace: WC
 
 [Term]
 id: WC
 name: Whole-cell modeling entities
-def: "Representation of an entity used in whole-cell modeling"
+def: "Representation of an entity used in whole-cell modeling" []
 
-!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:model_element
 name: model element
-def: "model element"
+def: "model element" []
 is_a: WC
 
 
 [Term]
 id: WC:species_type
 name: species_type
-def: "Type of species"
+def: "Type of species" []
 is_a: WC:model_element
 xref: MATR:Compound
 
 [Term]
 id: WC:species
 name: species
-def: "species"
+def: "species" []
 is_a: WC:model_element
 
 [Term]
 id: WC:compartment
 name: compartment
-def: "compartment"
+def: "compartment" []
 is_a: WC:model_element
 xref: SBO:0000289 ! functional compartment
 
 [Term]
 id: WC:reaction
 name: reaction
-def: "reaction"
+def: "reaction" []
 is_a: WC:model_element
 
 [Term]
 id: WC:provenance
 name: provenance
-def: "provenance terms"
+def: "provenance terms" []
 is_a: WC
 xref: SEPIO:0000058 ! provenance
 
 [Term]
 id: WC:reference
 name: reference
-def: "reference"
+def: "reference" []
 is_a: WC:provenance
 xref: BRO:Information_Resource ! Information Resource
 
 [Term]
 id: WC:model
 name: model
-def: "model"
+def: "model" []
 is_a: WC:model_element
 
 [Term]
 id: WC:taxon
 name: taxon
-def: "taxon"
+def: "taxon" []
 is_a: WC:model_element
 
 [Term]
 id: WC:environment
 name: environment
-def: "environment"
+def: "environment" []
 is_a: WC:model_element
 
 [Term]
 id: WC:submodel
 name: submodel
-def: "submodel"
+def: "submodel" []
 is_a: WC:model_element
 
 [Term]
 id: WC:observable
 name: observable
-def: "observable"
+def: "observable" []
 is_a: WC:model_element
 
 [Term]
 id: WC:function
 name: function
-def: "Function"
+def: "Function" []
 is_a: WC:model_element
 xref: SBO:0000064 ! mathematical expression
 
 [Term]
 id: WC:rate_law
 name: rate law
-def: "rate law"
+def: "rate law" []
 is_a: WC:model_element
 xref: SBO:0000001 ! rate lawloci
 
 [Term]
 id: WC:dFBA
 name: dFBA terms
-def: "dFBA objective"
+def: "dFBA objective" []
 is_a: WC:model_element
 
 [Term]
 id: WC:dfba_objective
 name: dFBA objective
-def: "dFBA objective"
+def: "dFBA objective" []
 is_a: WC:dFBA
 
 [Term]
 id: WC:dfba_reaction
 name: dFBA reaction
-def: "dFBA reaction"
+def: "dFBA reaction" []
 is_a: WC:dFBA
 
 [Term]
 id: WC:dfba_species
 name: dFBA species
-def: "dFBA species"
+def: "dFBA species" []
 is_a: WC:dFBA
 
 
 [Term]
 id: WC:stop_condition
 name: stop condition
-def: "stop condition"
+def: "stop condition" []
 is_a: WC:model_element
 
 [Term]
 id: WC:observation
 name: observation
-def: "observation"
+def: "observation" []
 is_a: WC:provenance
 xref: SEPIO:0000149 ! evidence item
 xref: IAO:0000111 ! data item
@@ -155,28 +154,28 @@ xref: IAO:0000111 ! data item
 [Term]
 id: WC:evidence
 name: evidence
-def: "Evidence"
+def: "Evidence" []
 is_a: WC:provenance
 xref: SEPIO:0000002 ! evidence line
 
 [Term]
 id: WC:supporting_evidence
 name: supporting evidence
-def: "Supporting evidence"
+def: "Supporting evidence" []
 is_a: WC:evidence
 xref: SEPIO:0000403 ! supporting
 
 [Term]
 id: WC:inconclusive_evidence
 name: inconclusive evidence
-def: "Inconclusive evidence"
+def: "Inconclusive evidence" []
 is_a: WC:evidence
 xref: SEPIO:0000405 ! inconclusive
 
 [Term]
 id: WC:disputing_evidence
 name: disputing evidence
-def: "Disputing evidence"
+def: "Disputing evidence" []
 is_a: WC:evidence
 xref: SEPIO:0000404 ! disputing
 
@@ -184,7 +183,7 @@ xref: SEPIO:0000404 ! disputing
 [Term]
 id: WC:conclusion
 name: conclusion
-def: "Conclusion"
+def: "Conclusion" []
 is_a: WC:provenance
 xref: SEPIO:0000000 ! proposition
 xref: SEPIO:0000001 ! assertion
@@ -192,140 +191,128 @@ xref: SEPIO:0000001 ! assertion
 [Term]
 id: WC:author
 name: author
-def: "Author"
+def: "Author" []
 is_a: WC:provenance
 xref: foaf:Person ! Person
 
 [Term]
 id: WC:change
 name: change
-def: "Change"
+def: "Change" []
 is_a: WC:provenance
 xref: COMODI:Change
 
 [Term]
 id: WC:process
 name: process
-def: "process"
+def: "process" []
 is_a: WC:model_element
 xref: BFO:0000015 ! process
 
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! compartments
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 [Term]
 id: WC:biological_compartment
 name: biological compartment
-def: "Biological compartment"
+def: "Biological compartment" []
 is_a: WC:compartment
 
 [Term]
 id: WC:cellular_compartment
 name: cellular compartment
-def: "Cellular compartment"
+def: "Cellular compartment" []
 is_a: WC:biological_compartment
 xref: sao1337158144 ! Cellular Component
 
 [Term]
 id: WC:extracellular_compartment
 name: extracellular compartment
-def: "Extracellular compartment"
+def: "Extracellular compartment" []
 is_a: WC:biological_compartment
 
 [Term]
 id: WC:physical_compartment
 name: physical compartment
-def: "Physical compartment"
+def: "Physical compartment" []
 is_a: WC:compartment
 xref: SBO:0000290 ! physical compartment
 
 [Term]
 id: WC:fluid_compartment
 name: fluid compartment
-def: "Fluid compartment"
+def: "Fluid compartment" []
 is_a: WC:physical_compartment
 
 [Term]
 id: WC:membrane_compartment
 name: membrane compartment
-def: "Membrane compartment"
+def: "Membrane compartment" []
 is_a: WC:physical_compartment
 
 [Term]
 id: WC:abstract_compartment
 name: abstract compartment
-def: "Compartment that doesn't contain physical matter with properties like density = mass/volume; the volume is fixed"
+def: "Compartment that doesn't contain physical matter with properties like density = mass/volume; the volume is fixed" []
 is_a: WC:physical_compartment
 
 [Term]
 id: WC:geometric_compartment
 name: geometric compartment
-def: "Geometric compartment"
+def: "Geometric compartment" []
 is_a: WC:compartment
 
 [Term]
 id: WC:3D_compartment
 name: 3D compartment
-def: "3D compartment"
+def: "3D compartment" []
 is_a: WC:geometric_compartment
 
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! Species types
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:metabolite
 name: metabolite
-def: "Metabolite"
+def: "Metabolite" []
 is_a: WC:species_type
 xref: SBO:0000299 ! metabolite
 
 [Term]
 id: WC:protein
 name: protein
-def: "protein"
+def: "protein" []
 is_a: WC:species_type
 
 [Term]
 id: WC:RNA
 name: RNA
-def: "RNA"
+def: "RNA" []
 is_a: WC:species_type
 xref: SBO:0000250 ! ribonucleic acid
 
 [Term]
 id: WC:DNA
 name: DNA
-def: "DNA"
+def: "DNA" []
 is_a: WC:species_type
 xref: SBO:0000251 ! deoxyribonucleic acid
 
 [Term]
 id: WC:pseudo_species
 name: pseudo species
-def: "Pseudo-species"
+def: "Pseudo-species" []
 is_a: WC:species_type
 
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! modeling frameworks
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:modeling_framework
 name: modeling framework
-def: "modeling framework"
+def: "modeling framework" []
 is_a: WC
 xref: kisao:KISAO_0000000 ! modelling and simulation algorithm
 
 [Term]
 id: WC:stochastic_simulation_algorithm
 name: stochastic simulation algorithm
-def: "stochastic simulation algorithm"
-! synonym: "SSA" EXACT
+def: "stochastic simulation algorithm" []
+synonym: "SSA" EXACT []
 is_a: WC:modeling_framework
 xref: SBO:0000295 ! non-spatial discrete framework
 xref: kisao:KISAO_0000241 ! Gillespie-like method
@@ -333,8 +320,8 @@ xref: kisao:KISAO_0000241 ! Gillespie-like method
 [Term]
 id: WC:deterministic_simulation_algorithm
 name: deterministic simulation algorithm
-def: "deterministic simulation algorithm"
-! synonym: "DSA" EXACT
+def: "deterministic simulation algorithm" []
+synonym: "DSA" EXACT []
 is_a: WC:modeling_framework
 xref: SBO:0000295 ! non-spatial discrete framework
 xref: kisao:KISAO_0000241 ! Gillespie-like method
@@ -342,175 +329,155 @@ xref: kisao:KISAO_0000241 ! Gillespie-like method
 [Term]
 id: WC:ordinary_differential_equations
 name: ordinary differential equations
-def: "Ordinary differential equations"
-! synonym: "ODEs" EXACT
+def: "Ordinary differential equations" []
+synonym: "ODEs" EXACT []
 is_a: WC:modeling_framework
 xref: SBO:0000062 ! continuous framework
 
 [Term]
 id: WC:dynamic_flux_balance_analysis
 name: dynamic flux balance analysis
-def: "Dynamic flux balance analysis"
-! synonym: "dFBA" EXACT
+def: "Dynamic flux balance analysis" []
+synonym: "dFBA" EXACT []
 is_a: WC:modeling_framework
 xref: SBO:0000624 ! flux balance framework
 xref: kisao:KISAO_0000499 ! dynamic flux balance analysis
 
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! rate laws
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 [Term]
 id: WC:hill_rate_law
 name: Hill rate law
-def: "Hill rate law"
+def: "Hill rate law" []
 is_a: WC:rate_law
 xref: SBO:0000192 ! Hill-type rate law, generalised form
 
 [Term]
 id: WC:mass_action_rate_law
 name: Mass-action rate law
-def: "Mass-action rate law"
+def: "Mass-action rate law" []
 is_a: WC:rate_law
 xref: SBO:0000012 ! mass action rate law
 
 [Term]
 id: WC:Michaelis_Menten_rate_law
 name: Michaelis-Menten rate law
-def: "Michaelis-Menten rate law"
+def: "Michaelis-Menten rate law" []
 is_a: WC:rate_law
 xref: SBO:0000029 ! Henri-Michaelis-Menten rate law
 
 [Term]
 id: WC:modular_rate_law
 name: Modular rate law
-def: "Modular rate law"
+def: "Modular rate law" []
 is_a: WC:rate_law
 xref: SBO:0000527 ! modular rate law
 
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! parameters
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 [Term]
 id: WC:parameter
 name: parameters
-def: "parameters"
+def: "parameters" []
 is_a: WC:model_element
 xref: SBO:0000002 ! quantitative systems description parameter
 
 [Term]
 id: WC:kinetic_constant
 name: kinetic constant
-def: "Kinetic constant"
+def: "Kinetic constant" []
 is_a: WC:parameter
 xref: SBO:0000009 ! kinetic constant
 
 [Term]
 id: WC:K_i
 name: K_i
-def: "K_i"
+def: "K_i" []
 is_a: WC:kinetic_constant
 xref: SBO:0000261 ! inhibitory constant
 
 [Term]
 id: WC:k_cat
 name: k_cat
-def: "k_cat"
+def: "k_cat" []
 is_a: WC:kinetic_constant
 xref: SBO:0000025 ! catalytic rate constant
 
 [Term]
 id: WC:K_m
 name: K_m
-def: "K_m"
+def: "K_m" []
 is_a: WC:kinetic_constant
 xref: SBO:0000027 ! Michaelis constant
 
 [Term]
 id: WC:v_max
 name: v_max
-def: "v_max"
+def: "v_max" []
 is_a: WC:kinetic_constant
 xref: SBO:0000186 ! maximal velocity
 
 [Term]
 id: WC:K_i
 name: K_i
-def: "K_i"
+def: "K_i" []
 is_a: WC:kinetic_constant
 xref: SBO:0000261 ! inhibitory constant
 
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! Observation
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 [Term]
 id: WC:experimental_observation
 name: experimental observation
-def: "Experimental observation"
+def: "Experimental observation" []
 is_a: WC:observation
 
 [Term]
 id: WC:computational_observation
 name: computational observation
-def: "Computational observation"
+def: "Computational observation" []
 is_a: WC:observation
 
 [Term]
 id: WC:theoretical_observation
 name: theoretical observation
-def: "Theoretical observation"
+def: "Theoretical observation" []
 is_a: WC:observation
 
 [Term]
 id: WC:data_set
 name: data set
-def: "Data set"
+def: "Data set" []
 is_a: WC
 xref: IAO:0000100 ! data set
 
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! Conclusion
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 [Term]
 id: WC:assumption
 name: assumption
-def: "Assumption"
+def: "Assumption" []
 is_a: WC:conclusion
 
 [Term]
 id: WC:approximation
 name: approximation
-def: "Approximation"
+def: "Approximation" []
 is_a: WC:conclusion
 
 [Term]
 id: WC:computation
 name: computation
-def: "Computation"
+def: "Computation" []
 is_a: WC:conclusion
 
 [Term]
 id: WC:decision
 name: decision
-def: "Decision"
+def: "Decision" []
 is_a: WC:conclusion
 
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! references
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:article
 name: article
-def: "Article"
+def: "Article" []
 is_a: WC:reference
 xref: BRO:JouRNAl_Article ! JouRNAl Article
 xref: IAO:0000013 ! jouRNAl article
@@ -518,1362 +485,1280 @@ xref: IAO:0000013 ! jouRNAl article
 [Term]
 id: WC:book
 name: book
-def: "Book"
+def: "Book" []
 is_a: WC:reference
 xref: BRO:Book ! book
 
 [Term]
 id: WC:website
 name: website
-def: "website"
+def: "website" []
 is_a: WC:reference
 xref: BRO:Website ! Website
 
 [Term]
 id: WC:proceedings
 name: proceedings
-def: "Proceedings"
+def: "Proceedings" []
 is_a: WC:reference
 xref: BRO:Conference_Proceeding ! Conference Proceeding
 
 [Term]
 id: WC:thesis
 name: thesis
-def: "Thesis"
+def: "Thesis" []
 is_a: WC:reference
 xref: BRO:Thesis ! Thesis
 
 [Term]
 id: WC:preprint
 name: preprint
-def: "preprint"
+def: "preprint" []
 is_a: WC:reference
 
 [Term]
 id: WC:supplementary_material
 name: supplementary material
-def: "supplementary_material"
+def: "supplementary_material" []
 is_a: WC:reference
 
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! Random distribution
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:random_distribution
 name: random distribution
-def: "random distribution"
+def: "random distribution" []
 is_a: WC
 
 [Term]
 id: WC:beta_distribution
 name: beta distribution
-def: "beta distribution"
+def: "beta distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:binomial_distribution
 name: binomial distribution
-def: "binomial distribution"
+def: "binomial distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:chi_square_distribution
 name: chi square distribution
-def: "Chi square distribution"
+def: "Chi square distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:Dirichlet_distribution
 name: Dirichlet distribution
-def: "Dirichlet distribution"
+def: "Dirichlet distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:exponential_distribution
 name: exponential distribution
-def: "Exponential distribution"
+def: "Exponential distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:f_distribution
 name: f distribution
-def: "F distribution"
+def: "F distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:gamma_distribution
 name: gamma distribution
-def: "Gamma distribution"
+def: "Gamma distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:geometric_distribution
 name: geometric distribution
-def: "Geometric distribution"
+def: "Geometric distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:Gumbel_distribution
 name: Gumbel distribution
-def: "Gumbel distribution"
+def: "Gumbel distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:hypergeometric_distribution
 name: hypergeometric distribution
-def: "Hypergeometric distribution"
+def: "Hypergeometric distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:Laplace_distribution
 name: Laplace distribution
-def: "Laplace distribution"
+def: "Laplace distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:logisitic_distribution
 name: logisitic distribution
-def: "Logisitic distribution"
+def: "Logisitic distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:log_normal_distribution
 name: log normal distribution
-def: "Log normal distribution"
+def: "Log normal distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:log_series_distribution
 name: log series distribution
-def: "Log series distribution"
+def: "Log series distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:multinomial_distribution
 name: multinomial distribution
-def: "Multinomial distribution"
+def: "Multinomial distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:multivariate_normal_distribution
 name: multivariate-normal distribution
-def: "Multivariate-normal distribution"
+def: "Multivariate-normal distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:negative_binomial_distribution
 name: negative-binomial distribution
-def: "Negative-binomial distribution"
+def: "Negative-binomial distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:noncentral-chi_square_distribution
 name: noncentral-chi square distribution
-def: "Noncentral-chi square distribution"
+def: "Noncentral-chi square distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:noncentral-f_distribution
 name: noncentral-f distribution
-def: "Noncentral-f distribution"
+def: "Noncentral-f distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:normal_distribution
 name: normal distribution
-def: "Normal distribution"
+def: "Normal distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:Pareto_distribution
 name: Pareto distribution
-def: "Pareto distribution"
+def: "Pareto distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:Poisson_distribution
 name: Poisson distribution
-def: "Poisson distribution"
+def: "Poisson distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:power_distribution
 name: power distribution
-def: "Power distribution"
+def: "Power distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:Rayleigh_distribution
 name: Rayleigh distribution
-def: "Rayleigh distribution"
+def: "Rayleigh distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:standard-Cauchy_distribution
 name: standard-Cauchy distribution
-def: "Standard-Cauchy distribution"
+def: "Standard-Cauchy distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:standard-exponential_distribution
 name: standard-exponential distribution
-def: "Standard-exponential distribution"
+def: "Standard-exponential distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:standard-gamma_distribution
 name: standard-gamma distribution
-def: "Standard-gamma distribution"
+def: "Standard-gamma distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:standard-normal_distribution
 name: standard-normal distribution
-def: "Standard-normal distribution"
+def: "Standard-normal distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:standard-t_distribution
 name: standard-t distribution
-def: "Standard-t distribution"
+def: "Standard-t distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:triangular_distribution
 name: triangular distribution
-def: "Triangular distribution"
+def: "Triangular distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:uniform_distribution
 name: uniform distribution
-def: "Uniform distribution"
+def: "Uniform distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:Vonmises_distribution
 name: Vonmises distribution
-def: "Vonmises distribution"
+def: "Vonmises distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:Wald_distribution
 name: Wald distribution
-def: "Wald distribution"
+def: "Wald distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:Weibull_distribution
 name: Weibull distribution
-def: "Weibull distribution"
+def: "Weibull distribution" []
 is_a: WC:random_distribution
 
 [Term]
 id: WC:Zipf_distribution
 name: Zipf distribution
-def: "Zipf distribution"
+def: "Zipf distribution" []
 is_a: WC:random_distribution
 
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! Changes
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:change
 name: change
-def: "change"
+def: "change" []
 is_a: WC:provenance
 
 [Term]
 id: WC:deletion_change_provenance
 name: deletion
-def: "deletion"
+def: "deletion" []
 is_a: WC:change
 xref: COMODI:Deletion
 
 [Term]
 id: WC:insertion
 name: insertion
-def: "Insertion"
+def: "Insertion" []
 is_a: WC:change
 xref: COMODI:Insertion
 
 [Term]
 id: WC:move
 name: move
-def: "Move"
+def: "Move" []
 is_a: WC:change
 xref: COMODI:Move
 
 [Term]
 id: WC:update
 name: update
-def: "Update"
+def: "Update" []
 is_a: WC:change
 xref: COMODI:Update
 
 [Term]
 id: WC:merge
 name: merge
-def: "Merge"
+def: "Merge" []
 is_a: WC:change
 
 [Term]
 id: WC:copy
 name: copy
-def: "Copy"
+def: "Copy" []
 is_a: WC:change
 
 [Term]
 id: WC:revert
 name: revert
-def: "Revert"
+def: "Revert" []
 is_a: WC:change
 
 [Term]
 id: WC:intention_provenance
 name: intention
-def: "Intention"
+def: "Intention" []
 is_a: WC:provenance
 xref: COMODI:Intention
 
 [Term]
 id: WC:correct_intention_provenance
 name: correct
-def: "Correct"
+def: "Correct" []
 is_a: WC:intention_provenance
 xref: COMODI:Correction
 
 [Term]
 id: WC:elaborate_intention_provenance
 name: elaborate
-def: "Add more detail"
+def: "Add more detail" []
 is_a: WC:intention_provenance
 xref: COMODI:Elaboration
 
 [Term]
 id: WC:expand_intention_provenance
 name: expand
-def: "Expand the scope"
+def: "Expand the scope" []
 is_a: WC:intention_provenance
 xref: COMODI:Expansion
 
 [Term]
 id: WC:simplify_intention_provenance
 name: simplify
-def: "Simplify"
+def: "Simplify" []
 is_a: WC:intention_provenance
 xref: COMODI:Simplification
 
 [Term]
 id: WC:reason_provenance
 name: reason
-def: "Reason"
+def: "Reason" []
 is_a: WC:provenance
 xref: COMODI:Reason
 
 [Term]
 id: WC:new_goal_reason_provenance
 name: new goal for a project
-def: "New goal for a project. For example, a new phenotype that a model should predict or a new molecular mechanism that a model should account for"
+def: "New goal for a project. For example, a new phenotype that a model should predict or a new molecular mechanism that a model should account for" []
 is_a: WC:reason_provenance
 
 [Term]
 id: WC:new_knowledge_reason_provenance
 name: new knowledge
-def: "New knowledge"
+def: "New knowledge" []
 is_a: WC:reason_provenance
 xref: COMODI:KnowledgeGain
 
 [Term]
 id: WC:incorrect_interpretation_reason_provenance
 name: incorrect interpretation of existing knowledge
-def: "Incorrect interpretation of existing knowledge"
+def: "Incorrect interpretation of existing knowledge" []
 is_a: WC:reason_provenance
 xref: COMODI:MismatchWithPublication
 
 [Term]
 id: WC:implementation_error_reason_provenance
 name: implementation error
-def: "Implementation error such as a typo"
+def: "Implementation error such as a typo" []
 is_a: WC:reason_provenance
 xref: COMODI:Typo
 
 [Term]
 id: WC:migrate_version_reason_provenance
 name: migrate to another version
-def: "Migrate object to another version of a specification"
+def: "Migrate object to another version of a specification" []
 is_a: WC:reason_provenance
 xref: COMODI:ChangedSpecification
 
 [Term]
 id: WC:add_metadata_reason_provenance
 name: add metadata
-def: "Add metadata to facilitate comprehension"
+def: "Add metadata to facilitate comprehension" []
 is_a: WC:reason_provenance
 xref: COMODI:modelCuration
 
 [Term]
 id: WC:target_provenance
 name: target
-def: "Target"
+def: "Target" []
 is_a: WC:provenance
 xref: COMODI:Target
 
 [Term]
 id: WC:data_target_provenance
 name: data
-def: "Data"
+def: "Data" []
 is_a: WC:target_provenance
 
 [Term]
 id: WC:model_target_provenance
 name: model
-def: "model"
+def: "model" []
 is_a: WC:data_target_provenance
 xref: COMODI:modelDefinition
 
 [Term]
 id: WC:model_initial_conditions_target_provenance
 name: initial conditions
-def: "Initial conditions"
+def: "Initial conditions" []
 is_a: WC:model_target_provenance
 
 [Term]
 id: WC:model_dynamics_target_provenance
 name: dynamics
-def: "Dynamics"
+def: "Dynamics" []
 is_a: WC:model_target_provenance
 
 [Term]
 id: WC:metadata_target_provenance
 name: metadata
-def: "Metadata"
+def: "Metadata" []
 is_a: WC:target_provenance
 xref: COMODI:modelAnnotation
 
 [Term]
 id: WC:encoding_target_provenance
 name: encoding
-def: "Encoding (e.g. a different or revised file format)"
+def: "Encoding (e.g. a different or revised file format)" []
 is_a: WC:target_provenance
 xref: COMODI:modelEncoding
 
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! processes
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 [Term]
 id: WC:data_generation_process
 name: data generation process
-def: "Data generation process"
+def: "Data generation process" []
 is_a:  WC:process
 
 [Term]
 id: WC:data_analysis_process
 name: data analysis process
-def: "Data analysis process"
+def: "Data analysis process" []
 is_a:  WC:process
 xref: SEPIO:0000037 ! assertion method
 xref: SEPIO:0000003 ! assertion process
 
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!TERMS IMPORTED FROM WC_KB
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!! MetaboliteSpecies Types
-
 [Term]
 id: WC:vitamin
 name: Vitamin
-def: "Vitamin"
+def: "Vitamin" []
 is_a: WC:metabolite
 
 [Term]
 id: WC:aminoAcid
 name: Amino Acid
-def: "Amino Acid"
+def: "Amino Acid" []
 is_a: WC:metabolite
 
 [Term]
 id: WC:dipeptide
 name: Dipeptide
-def: "Dipeptide"
+def: "Dipeptide" []
 is_a: WC:metabolite
 
 [Term]
 id: WC:nucleobase
 name: Nucleobase
-def: "Nucleobase"
+def: "Nucleobase" []
 is_a: WC:metabolite
 
 [Term]
 id: WC:modifiedNucleobase
 name: Modified Nucleobase
-def: "Modified Nucleobase"
+def: "Modified Nucleobase" []
 is_a: WC:metabolite
 
 [Term]
 id: WC:carbohydrateSugar
 name: Carbohydrate Sugar
-def: "Carbohydrate Sugar"
+def: "Carbohydrate Sugar" []
 is_a: WC:metabolite
 
 [Term]
 id: WC:carbohydrateSugarPhosphate
 name: Carbohydrate Sugar Phosphate
-def: "Carbohydrate Sugar Phosphate"
+def: "Carbohydrate Sugar Phosphate" []
 is_a: WC:metabolite
 
 [Term]
 id: WC:ribonucleotideMonophosphate
 name: Ribonucleotide Monophosphate
-def: "Ribonucleotide Monophosphate"
+def: "Ribonucleotide Monophosphate" []
 is_a: WC:metabolite
 
 [Term]
 id: WC:ribonucleotideBiphosphate
 name: Ribonucleotide Biphosphate
-def: "Ribonucleotide Biphosphate"
+def: "Ribonucleotide Biphosphate" []
 is_a: WC:metabolite
 
 [Term]
 id: WC:ribonucleotideTriphosphate
 name: Ribonucleotide Triphosphate
-def: "Ribonucleotide Triphosphate"
+def: "Ribonucleotide Triphosphate" []
 is_a: WC:metabolite
 
 [Term]
 id: WC:carboxyAcid
 name: Carboxy Acid
-def: "Carboxy Acid"
+def: "Carboxy Acid" []
 is_a: WC:metabolite
 
 [Term]
 id: WC:reactiveOxygenSpecies
 name: reactive oxygen species
-def: "Reactive Oxygen Species"
+def: "Reactive Oxygen Species" []
 is_a: WC:metabolite
 
 [Term]
 id: WC:Ion
 name: Ion
-def: "Ion"
+def: "Ion" []
 is_a: WC:metabolite
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!! ProteinSpecies Types !!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:TRNASynthClassI
 name: TRNASynthClassI
-def: "TRNASynthClassI"
+def: "TRNASynthClassI" []
 is_a: WC:protein
 
 [Term]
 id: WC:TRNASynthClassIB
 name: TRNASynthClassIB
-def: "TRNASynthClassIB"
+def: "TRNASynthClassIB" []
 is_a: WC:protein
 
 [Term]
 id: WC:TRNASynthClassII
 name: TRNASynthClassII
-def: "TRNASynthClassII"
+def: "TRNASynthClassII" []
 is_a: WC:protein
 
-
-!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!! Complex Types !!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:complex
 name: complexes
-def: "complexes"
+def: "complexes" []
 is_a: WC:species_type
 
 [Term]
 id: WC:TRNASynthClassIIComplex
 name: TRNASynthClassII
-def: "TRNASynthClassII"
+def: "TRNASynthClassII" []
 is_a: WC:complex
 
 [Term]
 id: WC:fattyAcylAcpComplex
 name: FattyAcylAcp
-def: "FattyAcylAcp"
+def: "FattyAcylAcp" []
 is_a: WC:complex
 
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!  complexFormation Type !!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:complexFormation
 name: complexFormation
-def: "Complex Formation Type"
+def: "Complex Formation Type" []
 is_a: WC:model_element
 
 [Term]
 id: WC:chromosomeCondensation
 name: Chromosome Condensation
-def: "Chromosome Condensation"
+def: "Chromosome Condensation" []
 is_a: WC:complexFormation
 
 [Term]
 id: WC:ftsZPolymerization
 name: FtsZ Polymerization
-def: "FtsZ Polymerization"
+def: "FtsZ Polymerization" []
 is_a: WC:complexFormation
 
 [Term]
 id: WC:macromolecularComplexation
 name: Macromolecular Complexation
-def: "Macromolecular Complexation"
+def: "Macromolecular Complexation" []
 is_a: WC:complexFormation
 
 [Term]
 id: WC:metabolism
 name: Metabolism
-def: "Metabolism"
+def: "Metabolism" []
 is_a: WC:complexFormation
 
 [Term]
 id: WC:proteinModification
 name: Protein Modification
-def: "proteinModification"
+def: "proteinModification" []
 is_a: WC:complexFormation
 
 [Term]
 id: WC:replication
 name: Replication
-def: "Replication"
+def: "Replication" []
 is_a: WC:complexFormation
 
 [Term]
 id: WC:replicationInitiation
 name: Replication Initiation
-def: "Replication Initiation"
+def: "Replication Initiation" []
 is_a: WC:complexFormation
 
 [Term]
 id: WC:ribosomeAssembly
 name: Ribosome Assembly
-def: "Ribosome Assembly"
+def: "Ribosome Assembly" []
 is_a: WC:complexFormation
 
 [Term]
 id: WC:transcriptionComplexFormation
 name: transcription
-def: "transcription"
+def: "transcription" []
 is_a: WC:complexFormation
 
 [Term]
 id: WC:translationComplexFormation
 name: Translation
-def: "Translation"
+def: "Translation" []
 is_a: WC:complexFormation
 
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!! signalSequence Types !!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:signalSequence
 name: signal Sequence Type
-def: "signal Sequence Type"
+def: "signal Sequence Type" []
 is_a: WC:model_element
 
 [Term]
 id: WC:secretory
 name: secretory Signal Sequence Type
-def: "secretory Signal Sequence Type"
+def: "secretory Signal Sequence Type" []
 is_a: WC:signalSequence
 
 [Term]
 id: WC:lipoProtein
 name: lipo Protein Signal Sequence
-def: "lipo Protein Signal Sequence Type"
+def: "lipo Protein Signal Sequence Type" []
 is_a: WC:signalSequence
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!! DNABinding Type !!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:DNABinding
 name: DNA binding Type
-def: "DNA binding Type"
+def: "DNA binding Type" []
 is_a: WC:model_element
 
 [Term]
 id: WC:ssDNA
 name: single Strand DNA Binding Type
-def: "single Strand DNA Binding Type"
+def: "single Strand DNA Binding Type" []
 is_a: WC:DNABinding
 
 [Term]
 id: WC:dsDNA
 name: double Strand DNA Binding Type
-def: "double Strand DNA Binding Type"
+def: "double Strand DNA Binding Type" []
 is_a: WC:DNABinding
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!! chromosomeFeature Type !!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:chromosomeFeature
 name: chromosomeFeature
-def: "chromosomeFeature Type"
+def: "chromosomeFeature Type" []
 is_a: WC:model_element
 
 [Term]
 id: WC:longStructuralRegion
 name: Long Structural Region
-def: "Long Structural Region"
+def: "Long Structural Region" []
 is_a: WC:chromosomeFeature
 
 [Term]
 id: WC:DNAMethylation
 name: DNA Methylation
-def: "DNA Methylation"
+def: "DNA Methylation" []
 is_a: WC:chromosomeFeature
 
 [Term]
 id: WC:geneWizPrediction
 name: geneWiz Prediction
-def: "geneWiz Prediction"
+def: "geneWiz Prediction" []
 is_a: WC:chromosomeFeature
 
 [Term]
 id: WC:DNABindingSite
 name: DNA Binding Site
-def: "DNA Binding Site"
+def: "DNA Binding Site" []
 is_a: WC:chromosomeFeature
 
 [Term]
 id: WC:DNABindingSiteLon
 name: DNA BindingSite Lon
-def: "DNA BindingSite Lon"
+def: "DNA BindingSite Lon" []
 is_a: WC:chromosomeFeature
 
 [Term]
 id: WC:functionalDNAABox
 name: FunctionalDNAABox
-def: "FunctionalDNAABox"
+def: "FunctionalDNAABox" []
 is_a: WC:chromosomeFeature
 
 [Term]
 id: WC:DNAABox
 name: DNAABox
-def: "DNAABox"
+def: "DNAABox" []
 is_a: WC:chromosomeFeature
 
 [Term]
 id: WC:DNAMethylationSite
 name: DNA Methylation site
-def: "DNA Methylation site"
+def: "DNA Methylation site" []
 is_a: WC:chromosomeFeature
 
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!! Clusters of Orthologous Groups Type !!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:COG
 name: Clusters of orthologous groups
-def: "Clusters of Orthologous Groups"
+def: "Clusters of Orthologous Groups" []
 is_a: WC:gene
 
 [Term]
 id: WC:RNAprocessing
 name: RNA processing
-def: "RNA processing"
+def: "RNA processing" []
 is_a: WC:COG
 
 [Term]
 id: WC:chromatinStructureDynamics
 name: Chromatin Structure Dynamics
-def: "Chromatin Structure Dynamics"
+def: "Chromatin Structure Dynamics" []
 is_a: WC:COG
 
 [Term]
 id: WC:energyProductionConversion
 name: Energy Production and Conversion
-def: "Energy Production and Conversion"
+def: "Energy Production and Conversion" []
 is_a: WC:COG
 
 [Term]
 id: WC:cellCycleControlMitosis
 name: Cell Cycle Control and Mitosis
-def: "Cell Cycle Control and Mitosis"
+def: "Cell Cycle Control and Mitosis" []
 is_a: WC:COG
 
 [Term]
 id: WC:aminoAcidMetabolismTransport
 name: Amino Acid Metabolism and Transport
-def: "Amino Acid Metabolism and Transport"
+def: "Amino Acid Metabolism and Transport" []
 is_a: WC:COG
 
 [Term]
 id: WC:nucleotideMetabolismTransport
 name: Nucleotide Metabolism and Transport
-def: "Nucleotide Metabolism and Transport"
+def: "Nucleotide Metabolism and Transport" []
 is_a: WC:COG
 
 [Term]
 id: WC:carbohydrateMetabolismTransport
 name: Carbohydrate Metabolism and Transport
-def: "Carbohydrate Metabolism and Transport"
+def: "Carbohydrate Metabolism and Transport" []
 is_a: WC:COG
 
 [Term]
 id: WC:coenzymeMetabolites
 name: Coenzyme Metabolites
-def: "Coenzyme Metabolites"
+def: "Coenzyme Metabolites" []
 is_a: WC:COG
 
 [Term]
 id: WC:lipidMetabolism
 name: Lipid Metabolism
-def: "Lipid Metabolism"
+def: "Lipid Metabolism" []
 is_a: WC:COG
 
 [Term]
 id: WC:tranlsation
 name: Tranlsation
-def: "Tranlsation"
+def: "Tranlsation" []
 is_a: WC:COG
 
 [Term]
 id: WC:transcription
 name: transcription
-def: "transcription"
+def: "transcription" []
 is_a: WC:COG
 
 [Term]
 id: WC:replicationRepair
 name: Replication Repair
-def: "Replication Repair"
+def: "Replication Repair" []
 is_a: WC:COG
 
 [Term]
 id: WC:cellWallMembraneEnvelopBiogenesis
 name: Cell Wall Membrane Envelope Biogenesis
-def: "Cell Wall Membrane Envelope Biogenesis"
+def: "Cell Wall Membrane Envelope Biogenesis" []
 is_a: WC:COG
 
 [Term]
 id: WC:cellMotility
 name: Cell Motility
-def: "Cell Motility"
+def: "Cell Motility" []
 is_a: WC:COG
 
 [Term]
 id: WC:secondaryStructure
 name: Secondary Structure
-def: "Secondary Structure"
+def: "Secondary Structure" []
 is_a: WC:COG
 
 [Term]
 id: WC:postTranslationalModification
 name: Post Translational Modification
-def: "Post Translational Modification"
+def: "Post Translational Modification" []
 is_a: WC:COG
 
 [Term]
 id: WC:inorganicIonTransport
 name: Inorganic Ion Transport
-def: "Inorganic Ion Transport"
+def: "Inorganic Ion Transport" []
 is_a: WC:COG
 
 [Term]
 id: WC:signalTransduction
 name: Signal Transduction
-def: "Signal Transduction"
+def: "Signal Transduction" []
 is_a: WC:COG
 
 [Term]
 id: WC:intracellularTrafficingSecretion
 name: Intracellular Trafficing Secretion
-def: "Intracellular Trafficing Secretion"
+def: "Intracellular Trafficing Secretion" []
 is_a: WC:COG
 
 [Term]
 id: WC:nuclearStructure
 name: Nuclear Structure
-def: "Nuclear Structure"
+def: "Nuclear Structure" []
 is_a: WC:COG
 
 [Term]
 id: WC:cytoskeleton
 name: Cytoskeleton
-def: "Cytoskeleton"
+def: "Cytoskeleton" []
 is_a: WC:COG
 
-
-!!!!!!!!!!!!!!!!!!!
-!!! RNA types !!!!!
-!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:mRNA
 name: messenger RNA
-def: "messenger RNA"
+def: "messenger RNA" []
 is_a: WC:RNA
 
 [Term]
 id: WC:rRNA
 name: ribosomal RNA
-def: "ribosomal RNA"
+def: "ribosomal RNA" []
 is_a: WC:RNA
 
 [Term]
 id: WC:sRNA
 name: small RNA
-def: "small RNA"
+def: "small RNA" []
 is_a: WC:RNA
 
 [Term]
 id: WC:tRNA
 name: transport RNA
-def: "transport RNA"
+def: "transport RNA" []
 is_a: WC:RNA
 
 [Term]
 id: WC:asRNA
 name: anti-sense RNA
-def: "anti-sense RNA"
+def: "anti-sense RNA" []
 is_a: WC:RNA
 
 [Term]
 id: WC:ncRNA
 name: non-coding RNA
-def: "non-coding RNA"
+def: "non-coding RNA" []
 is_a: WC:RNA
 
 [Term]
 id: WC:mixed
 name: mixed RNA
-def: "mixed RNA"
+def: "mixed RNA" []
 is_a: WC:RNA
 
 [Term]
 id: WC:intergenic
 name: intergenic RNA
-def: "intergenic RNA"
+def: "intergenic RNA" []
 is_a: WC:RNA
 
-!!!!!!!!!!!!!!!!!!!!!!!!
-!!! reaction types
 
 [Term]
 id: WC:chemicalReaction
 name: Chemical reaction
-def: "Chemical reaction"
+def: "Chemical reaction" []
 is_a: WC:reaction
 
 [Term]
 id: WC:transportReaction
 name: Transport reaction
-def: "Transport reaction"
+def: "Transport reaction" []
 is_a: WC:reaction
 
 [Term]
 id: WC:modifiedBaseTransportReaction
 name: Modified base transport reaction
-def: "Modified base transport reaction"
+def: "Modified base transport reaction" []
 is_a: WC:reaction
 
 [Term]
 id: WC:ionTransportReaction
 name: Ion transport reaction
-def: "Ion transport reaction"
+def: "Ion transport reaction" []
 is_a: WC:reaction
 
 [Term]
 id: WC:TRNATransferReaction
 name: tRRNA transfer reaction
-def: "TRNA Transfer reaction"
+def: "TRNA Transfer reaction" []
 is_a: WC:reaction
 
 [Term]
 id: WC:TRNAAminoacylationReaction
 name: tRNA aminoacylation reaction
-def: "TRNAAminoacylation reaction"
+def: "TRNAAminoacylation reaction" []
 is_a: WC:reaction
 
-!!!!!!!!!!!!!!!!!
-!!! protein modification reactions
 
 [Term]
 id: WC:proteinModificationReaction
 name: protein modification reaction
-def: "protein modification reaction"
+def: "protein modification reaction" []
 is_a: WC:reaction
 
 
 [Term]
 id: WC:oxidationInactivating
 name: oxidation Inactivating Protein Modification
-def: "oxidation Inactivating Protein Modification"
+def: "oxidation Inactivating Protein Modification" []
 is_a: WC:proteinModificationReaction
 
 [Term]
 id: WC:adduction
 name: protein Modification Adduction
-def: "Protein Modification Adduction"
+def: "Protein Modification Adduction" []
 is_a: WC:proteinModificationReaction
 
 [Term]
 id: WC:ligation
 name: protein Modification Ligation
-def: "Protein Modification Ligation"
+def: "Protein Modification Ligation" []
 is_a: WC:proteinModificationReaction
 
 [Term]
 id: WC:inactivating
 name: phosphorylation Inactivating Protein Modification
-def: "Phosphorylation Inactivating Protein Modification"
+def: "Phosphorylation Inactivating Protein Modification" []
 is_a: WC:proteinModificationReaction
 
 [Term]
 id: WC:dephosphorylationActivating
 name: dephosphorylation Activating Protein Modification
-def: "Dephosphorylation Activating Protein Modification"
+def: "Dephosphorylation Activating Protein Modification" []
 is_a: WC:proteinModificationReaction
 
 [Term]
 id: WC:glycationInactivating
 name: glycation Inactivating Protein Modification
-def: "Glycation Inactivating Protein Modification"
+def: "Glycation Inactivating Protein Modification" []
 is_a: WC:proteinModificationReaction
 
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!! DNA repair type reaction !!!!!
 
 [Term]
 id: WC:DNARepairreaction
 name: DNA repair reaction
-def: "DNA repair reaction"
+def: "DNA repair reaction" []
 is_a: WC:reaction
 
 [Term]
 id: WC:baseExcisionRepair
 name: Base Excision Repair
-def: "Base Excision Repair"
+def: "Base Excision Repair" []
 is_a: WC:DNARepairreaction
 
 [Term]
 id: WC:DNALigation
 name: DNA Ligation
-def: "DNA Ligation"
+def: "DNA Ligation" []
 is_a: WC:DNARepairreaction
 
 [Term]
 id: WC:DNAPolymerization
 name: DNA Polymerization
-def: "DNA Polymerization"
+def: "DNA Polymerization" []
 is_a: WC:DNARepairreaction
 
 [Term]
 id: WC:DNACleavage
 name: DNA Cleavage
-def: "DNA Cleavage"
+def: "DNA Cleavage" []
 is_a: WC:DNARepairreaction
 
 [Term]
 id: WC:DNARestrictionModification
 name: DNA Restriction Modification
-def: "DNA Restriction Modification"
+def: "DNA Restriction Modification" []
 is_a: WC:DNARepairreaction
 
 [Term]
 id: WC:homologousRecombination
 name: Homologous Recombinationon
-def: "Homologous Recombination"
+def: "Homologous Recombination" []
 is_a: WC:DNARepairreaction
 
 [Term]
 id: WC:nucleotideExcisionRepair
 name: Nucleotide Excision Repair
-def: "Nucleotide Excision Repair"
+def: "Nucleotide Excision Repair" []
 is_a: WC:DNARepairreaction
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!! DNA damage reactions !!!!!
 
 [Term]
 id: WC:DNADamage
 name: DNA damage reaction
-def: "DNA damage reaction"
+def: "DNA damage reaction" []
 is_a: WC:reaction
 
 [Term]
 id: WC:baseAlkylation
 name: DNA Damage Base Alkylation
-def: "DNA Damage Base Alkylation"
+def: "DNA Damage Base Alkylation" []
 is_a: WC:DNADamage
 
 [Term]
 id: WC:baseEthylation
 name: DNA Damage Base Ethylation
-def: "DNA Damage Base Ethylation"
+def: "DNA Damage Base Ethylation" []
 is_a: WC:DNADamage
 
 [Term]
 id: WC:radiationInducedBaseOxidation
 name: DNA Damage Radiation Induced Base Oxidation
-def: "DNA Damage Radiation Induced Base Oxidation"
+def: "DNA Damage Radiation Induced Base Oxidation" []
 is_a: WC:DNADamage
 
 [Term]
 id: WC:baseMethylation
 name: DNA Damage Base Methylation
-def: "DNA Damage Base Methylation"
+def: "DNA Damage Base Methylation" []
 is_a: WC:DNADamage
 
 [Term]
 id: WC:baseAmination
 name: DNA Damage Base Amination
-def: "DNA Damage Base Amination"
+def: "DNA Damage Base Amination" []
 is_a: WC:DNADamage
 
 [Term]
 id: WC:uvbPhotodimerization
 name: DNA Damage UvB Photodimerization
-def: "DNA Damage UvB Photodimerization"
+def: "DNA Damage UvB Photodimerization" []
 is_a: WC:DNADamage
 
 [Term]
 id: WC:photoOxidation
 name: DNA Damage Photooxidation
-def: "DNA Damage Photooxidation"
+def: "DNA Damage Photooxidation" []
 is_a: WC:DNADamage
 
 [Term]
 id: WC:strandBreak
 name: DNA Damage Strand Break
-def: "DNA Damage Strand Break"
+def: "DNA Damage Strand Break" []
 is_a: WC:DNADamage
 
 [Term]
 id: WC:baseGlucosylTransfer
 name: DNA Damage Base Glucosyl Transfer
-def: "DNA Damage Base Glucosyl Transfer"
+def: "DNA Damage Base Glucosyl Transfer" []
 is_a: WC:DNADamage
 
 [Term]
 id: WC:spontaneousBaseDeamination
 name: DNA Damage Spontaneous Base Deamination
-def: "DNA Damage Spontaneous Base Deamination"
+def: "DNA Damage Spontaneous Base Deamination" []
 is_a: WC:DNADamage
 
 [Term]
 id: WC:spontaneousBaseLoss
 name: DNA Damage Spontaneous Base Loss
-def: "DNA Damage Spontaneous Base Loss"
+def: "DNA Damage Spontaneous Base Loss" []
 is_a: WC:DNADamage
 
 [Term]
 id: WC:baseReduction
 name: DNA Damage Base Reduction
-def: "DNA Damage Base Reduction"
+def: "DNA Damage Base Reduction" []
 is_a: WC:DNADamage
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!! EUKARYOTE ONTOLOGY !!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!! RegulatoryElement !!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:regulatoryElement
 name: regulatory element Type
-def: "regulatory element Type"
+def: "regulatory element Type" []
 is_a: WC:model_element
 
 [Term]
 id: WC:promoter
 name: Promoter
-def: "Promoter"
+def: "Promoter" []
 is_a: WC:regulatoryElement
 
 [Term]
 id: WC:promoterFlankingRegion
 name: Promoter Flanking Region
-def: "Promoter Flanking Region"
+def: "Promoter Flanking Region" []
 is_a: WC:regulatoryElement
 
 [Term]
 id: WC:enhancer
 name: Enhancer
-def: "Enhancer"
+def: "Enhancer" []
 is_a: WC:regulatoryElement
 
 [Term]
 id: WC:CTCFBindingSite
 name: CTCF Binding Site
-def: "CTCF Binding Site"
+def: "CTCF Binding Site" []
 is_a: WC:regulatoryElement
 
 [Term]
 id: WC:TFBindingSite
 name: TF Binding Site
-def: "TF Binding Site"
+def: "TF Binding Site" []
 is_a: WC:regulatoryElement
 
 [Term]
 id: WC:openChromatinRegion
 name: Open Chromatin Region
-def: "Open Chromatin Region"
+def: "Open Chromatin Region" []
 is_a: WC:regulatoryElement
 
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!! Activity Level Type !!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:activityLevel
 name: activity level
-def: "activity level"
+def: "activity level" []
 is_a: WC:model_element
 
 [Term]
 id: WC:active
 name: Active
-def: "Active"
+def: "Active" []
 is_a: WC:activityLevel
 
 [Term]
 id: WC:poised
 name: Poised
-def: "Poised"
+def: "Poised" []
 is_a: WC:activityLevel
 
 [Term]
 id: WC:repressed
 name: Repressed
-def: "Repressed"
+def: "Repressed" []
 is_a: WC:activityLevel
 
 [Term]
 id: WC:inactive
 name: Inactive
-def: "Inactive"
+def: "Inactive" []
 is_a: WC:activityLevel
 
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!! regulation Type !!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:regulationType
 name: regulationType
-def: "regulationType"
+def: "regulationType" []
 is_a: WC:model_element
 
 [Term]
 id: WC:proximal
 name: Proximal
-def: "Proximal"
+def: "Proximal" []
 is_a: WC:regulationType
 
 [Term]
 id: WC:distal
 name: Distal
-def: "Distal"
+def: "Distal" []
 is_a: WC:regulationType
 
-
-!!!!!!!!!!!!!!!!!!!!
-!!! gene types !!!!!
-!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:loci
 name: loci
-def: "loci"
+def: "loci" []
 is_a: WC:model_element
 
 [Term]
 id: WC:gene
 name: gene
-def: "gene"
+def: "gene" []
 is_a: WC:loci
 
 [Term]
 id: WC:transcriptionUnit
 name: transcription unit
-def: "transcription unit"
+def: "transcription unit" []
 is_a: WC:loci
 
 [Term]
 id: WC:promoter
 name: Promoter
-def: "Promoter"
+def: "Promoter" []
 is_a: WC:loci
 
 [Term]
 id: WC:pseudogene
 name: pseudogene
-def: "pseudogene"
+def: "pseudogene" []
 is_a: WC:gene
 
-!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! ValueType types !!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!
 
 [Term]
 id: WC:valueType
 name: value type
-def: "python class of ValueType"
+def: "python class of ValueType" []
 is_a: WC:model_element
 
 [Term]
 id: WC:boolean
 name: boolean
-def: "boolean"
+def: "boolean" []
 is_a: WC:valueType
 
 [Term]
 id: WC:string
 name: string
-def: "string"
+def: "string" []
 is_a: WC:valueType
 
 [Term]
 id: WC:integer
 name: integer
-def: "integer"
+def: "integer" []
 is_a: WC:valueType
 
 [Term]
 id: WC:float
 name: float
-def: "float"
+def: "float" []
 is_a: WC:valueType
 
 [Term]
 id: WC:signalSequenceType
 name: signal sequence type
-def: "signal sequence type"
+def: "signal sequence type" []
 is_a: WC:valueType

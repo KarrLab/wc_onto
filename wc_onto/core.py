@@ -6,6 +6,7 @@
 :License: MIT
 """
 
+import wc_onto.config.core
 import os
 import pkg_resources
 import pronto
@@ -13,22 +14,30 @@ import requests
 import urllib
 import warnings
 
+bio_portal_api_key = wc_onto.config.core.get_config()['wc_onto']['bioportal']['key']
+
 DEPENDENT_ONTOLOGIES = {
     'BFO': {
         'url': 'http://purl.obolibrary.org/obo/bfo.owl',
         'format': 'owl',
     },
     'BRO': {
-        'url': 'http://purl.obolibrary.org/obo/bro.owl',
+        'url': 'http://data.bioontology.org/ontologies/BRO/submissions/14/download',
+        'params': {
+            'headers': {'Authorization': 'apikey token=' + bio_portal_api_key},
+        },
         'format': 'owl'
     },
     'COMODI': {
-        'url': 'http://purl.obolibrary.org/obo/comodi.owl',
+        'url': 'https://comodi.bio.informatik.uni-rostock.de/latest/comodi.owl',
         'format': 'owl',
     },
     'FOAF': {
-        'url': 'http://purl.obolibrary.org/obo/foaf.rdf',
-        'format': 'owl',
+        'url': 'http://data.bioontology.org/ontologies/FOAF/download?download_format=rdf',
+        'params': {
+            'headers': {'Authorization': 'apikey token=' + bio_portal_api_key},
+        },
+        'format': 'rdf',
     },
     'IAO': {
         'url': 'http://purl.obolibrary.org/obo/iao.owl',
@@ -39,12 +48,15 @@ DEPENDENT_ONTOLOGIES = {
         'format': 'owl',
     },
     'MATR': {
-        'url': 'http://purl.obolibrary.org/obo/matr.owl',
-        'format': 'owl',
+        'url': 'http://data.bioontology.org/ontologies/MATR/submissions/1/download?download_format=rdf',
+        'params': {
+            'headers': {'Authorization': 'apikey token=' + bio_portal_api_key},
+        },
+        'format': 'rdf',
     },
     'SBO': {
-        'url': 'http://purl.obolibrary.org/obo/sbo.obo',
-        'format': 'obo',
+        'url': 'http://purl.obolibrary.org/obo/sbo.owl',
+        'format': 'owl',
     },
     'SEPIO': {
         'url': 'http://purl.obolibrary.org/obo/sepio.owl',
@@ -87,14 +99,13 @@ def get_ontology(id, source, dir=DEPENDENT_ONTOLOGIES_DIR):
     try:
         response = session.get(source['url'], **params)
     except requests.exceptions.ConnectionError:
-        warnings.warn('Unable to download dependent ontology {}'.format(id), UserWarning)
-        return
+        raise Exception('Unable to download dependent ontology {}'.format(id), UserWarning)
 
     if response.status_code >= 200 and response.status_code < 300:
         with open(path, 'wb') as file:
             file.write(response.content)
     else:
-        warnings.warn('Unable to download dependent ontology {}: {}: {}'.format(id, response.status_code, response.reason), UserWarning)
+        raise Exception('Unable to download dependent ontology {}: {}: {}'.format(id, response.status_code, response.reason), UserWarning)
 
 
 get_dependent_ontologies()

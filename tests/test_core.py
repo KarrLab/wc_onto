@@ -37,15 +37,15 @@ class CoreTestCase(unittest.TestCase):
             'BRO': core.DEPENDENT_ONTOLOGIES['BRO'],
         }, dir=self.tempdir)
 
-    def test_get_dependent_ontologies_warning(self):
-        with self.assertWarnsRegex(UserWarning, 'Unable to download dependent ontology'):
+    def test_get_dependent_ontologies_error(self):
+        with self.assertRaisesRegex(Exception, 'Unable to download dependent ontology'):
             with mock.patch.object(requests.Session, 'get', side_effect=requests.exceptions.ConnectionError):
                 core.get_ontology('test', {
                     'url': 'https://test.org/does_not_exist',
                     'format': 'owl',
                 }, dir=self.tempdir)
 
-        with self.assertWarnsRegex(UserWarning, 'Not ok'):
+        with self.assertRaisesRegex(Exception, 'Not ok'):
             with mock.patch.object(requests.Session, 'get', return_value=mock.Mock(status_code=300, reason='Not ok')):
                 core.get_ontology('test', {
                     'url': 'https://test.org/does_not_exist',
