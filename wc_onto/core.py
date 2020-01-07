@@ -119,6 +119,7 @@ with warnings.catch_warnings():
     warnings.filterwarnings('ignore', message=r'.*? no `xsd:datatype`', category=pronto.utils.warnings.SyntaxWarning)
     warnings.filterwarnings('ignore', message=r'several names found', category=pronto.utils.warnings.SyntaxWarning)
     warnings.filterwarnings('ignore', message=r"unknown axiom property: 'http:\/\/www\.w3\.org\/2000\/01\/rdf-schema#", category=pronto.utils.warnings.SyntaxWarning)
+    warnings.filterwarnings('ignore', message=r'unsound encoding', category=UnicodeWarning)
 
     onto = pronto.Ontology(pkg_resources.resource_filename(
         'wc_onto', os.path.join('onto.obo')))
