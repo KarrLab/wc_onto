@@ -10,6 +10,7 @@ import wc_onto.config.core
 import os
 import pkg_resources
 import pronto
+import pronto.utils.warnings
 import requests
 import urllib
 import warnings
@@ -110,6 +111,15 @@ def get_ontology(id, source, dir=DEPENDENT_ONTOLOGIES_DIR):
 
 get_dependent_ontologies()
 
-onto = pronto.Ontology(pkg_resources.resource_filename(
-    'wc_onto', os.path.join('onto.obo')))
+with warnings.catch_warnings():
+    warnings.filterwarnings('ignore', message=r'unknown element in `owl:Class`', category=pronto.utils.warnings.SyntaxWarning)
+    warnings.filterwarnings('ignore', message=r'unknown element in `owl:ObjectProperty`', category=pronto.utils.warnings.SyntaxWarning)
+    warnings.filterwarnings('ignore', message=r'`owl:disjointWith` element without', category=pronto.utils.warnings.SyntaxWarning)
+    warnings.filterwarnings('ignore', message=r'cannot process plain `owl:AnnotationProperty`', category=pronto.utils.warnings.NotImplementedWarning)
+    warnings.filterwarnings('ignore', message=r'.*? no `xsd:datatype`', category=pronto.utils.warnings.SyntaxWarning)
+    warnings.filterwarnings('ignore', message=r'several names found', category=pronto.utils.warnings.SyntaxWarning)
+    warnings.filterwarnings('ignore', message=r"unknown axiom property: 'http:\/\/www\.w3\.org\/2000\/01\/rdf-schema#", category=pronto.utils.warnings.SyntaxWarning)
+
+    onto = pronto.Ontology(pkg_resources.resource_filename(
+        'wc_onto', os.path.join('onto.obo')))
 # :obj:`pronto.Ontology`: whole-cell modeling ontology
