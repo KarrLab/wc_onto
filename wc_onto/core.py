@@ -7,6 +7,7 @@
 """
 
 import wc_onto.config.core
+import io
 import os
 import pkg_resources
 import pronto
@@ -121,6 +122,14 @@ with warnings.catch_warnings():
     warnings.filterwarnings('ignore', message=r"unknown axiom property: 'http:\/\/www\.w3\.org\/2000\/01\/rdf-schema#", category=pronto.utils.warnings.SyntaxWarning)
     warnings.filterwarnings('ignore', message=r'unsound encoding', category=UnicodeWarning)
 
-    onto = pronto.Ontology(pkg_resources.resource_filename(
-        'wc_onto', os.path.join('onto.obo')))
-# :obj:`pronto.Ontology`: whole-cell modeling ontology
+    filename = pkg_resources.resource_filename(
+        'wc_onto', os.path.join('onto.obo'))
+    
+    cleaned_file = io.BytesIO()
+    with open(filename, 'rb') as file:
+        for line in file:
+            cleaned_file.write(line.replace(b'\r', b'\n'))
+    cleaned_file.seek(0)
+
+    onto = pronto.Ontology(cleaned_file)
+    # :obj:`pronto.Ontology`: whole-cell modeling ontology
