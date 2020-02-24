@@ -16,7 +16,6 @@ name = 'wc_onto'
 dirname = os.path.dirname(__file__)
 package_data = {
     name: [
-        'VERSION',
         '*.obo',
         'config/*.cfg',
     ],
