@@ -4,9 +4,6 @@ recursive-include wc_onto *.obo
 # description
 README.rst
 
-# version
-include wc_onto/VERSION
-
 # configuration
 recursive-include wc_onto/config *.cfg
 
