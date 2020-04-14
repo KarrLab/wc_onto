@@ -300,6 +300,15 @@ is_a: WC
 xref: kisao:KISAO_0000000 ! modelling and simulation algorithm
 
 [Term]
+id: WC:next_reaction_method
+name: next reaction method
+def: "next reaction method" []
+synonym: "NRM" EXACT []
+is_a: WC:modeling_framework
+xref: SBO:0000295 ! non-spatial discrete framework
+xref: kisao:KISAO_0000241 ! Gillespie-like method
+
+[Term]
 id: WC:stochastic_simulation_algorithm
 name: stochastic simulation algorithm
 def: "stochastic simulation algorithm" []
