@@ -52,6 +52,3 @@ Thumbs.db
 ~$*.xlsx
 ~$*.xls
 .~*.xlsx
-
-# third party ontologies
-wc_onto/ontologies

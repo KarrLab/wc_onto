@@ -65,7 +65,7 @@ DEPENDENT_ONTOLOGIES = {
         'format': 'owl',
     },
 }
-DEPENDENT_ONTOLOGIES_DIR = pkg_resources.resource_filename('wc_onto', 'ontologies')
+DEPENDENT_ONTOLOGIES_DIR = os.path.expanduser(os.path.join('~', '.wc', 'ontologies'))
 
 
 def get_dependent_ontologies(ontologies=DEPENDENT_ONTOLOGIES, dir=DEPENDENT_ONTOLOGIES_DIR):
