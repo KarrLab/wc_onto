@@ -8,6 +8,7 @@
 
 import configobj
 import os
+import pathlib
 import pkg_resources
 import wc_utils.config
 
@@ -30,4 +31,8 @@ def get_config(extra=None):
         ),
     )
 
-    return wc_utils.config.ConfigManager(paths).get_config(extra=extra)
+    context = {
+        'HOME': str(pathlib.Path.home()),
+    }
+
+    return wc_utils.config.ConfigManager(paths).get_config(extra=extra, context=context)

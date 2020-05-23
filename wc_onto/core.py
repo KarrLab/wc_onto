@@ -6,7 +6,6 @@
 :License: MIT
 """
 
-import wc_onto.config.core
 import io
 import os
 import pkg_resources
@@ -15,8 +14,10 @@ import pronto.utils.warnings
 import requests
 import urllib
 import warnings
+import wc_onto.config.core
 
-bio_portal_api_key = wc_onto.config.core.get_config()['wc_onto']['bioportal']['key']
+config = wc_onto.config.core.get_config()['wc_onto']
+BIO_PORTAL_API_KEY = config['bioportal']['key']
 
 DEPENDENT_ONTOLOGIES = {
     'BFO': {
@@ -26,7 +27,7 @@ DEPENDENT_ONTOLOGIES = {
     'BRO': {
         'url': 'http://data.bioontology.org/ontologies/BRO/submissions/14/download',
         'params': {
-            'headers': {'Authorization': 'apikey token=' + bio_portal_api_key},
+            'headers': {'Authorization': 'apikey token=' + BIO_PORTAL_API_KEY},
         },
         'format': 'owl'
     },
@@ -37,7 +38,7 @@ DEPENDENT_ONTOLOGIES = {
     'FOAF': {
         'url': 'http://data.bioontology.org/ontologies/FOAF/download?download_format=rdf',
         'params': {
-            'headers': {'Authorization': 'apikey token=' + bio_portal_api_key},
+            'headers': {'Authorization': 'apikey token=' + BIO_PORTAL_API_KEY},
         },
         'format': 'rdf',
     },
@@ -52,7 +53,7 @@ DEPENDENT_ONTOLOGIES = {
     'MATR': {
         'url': 'http://data.bioontology.org/ontologies/MATR/submissions/1/download?download_format=rdf',
         'params': {
-            'headers': {'Authorization': 'apikey token=' + bio_portal_api_key},
+            'headers': {'Authorization': 'apikey token=' + BIO_PORTAL_API_KEY},
         },
         'format': 'rdf',
     },
@@ -65,7 +66,7 @@ DEPENDENT_ONTOLOGIES = {
         'format': 'owl',
     },
 }
-DEPENDENT_ONTOLOGIES_DIR = os.path.expanduser(os.path.join('~', '.wc', 'ontologies'))
+DEPENDENT_ONTOLOGIES_DIR = config['cache_dir']
 
 
 def get_dependent_ontologies(ontologies=DEPENDENT_ONTOLOGIES, dir=DEPENDENT_ONTOLOGIES_DIR):
@@ -116,15 +117,17 @@ with warnings.catch_warnings():
     warnings.filterwarnings('ignore', message=r'unknown element in `owl:Class`', category=pronto.utils.warnings.SyntaxWarning)
     warnings.filterwarnings('ignore', message=r'unknown element in `owl:ObjectProperty`', category=pronto.utils.warnings.SyntaxWarning)
     warnings.filterwarnings('ignore', message=r'`owl:disjointWith` element without', category=pronto.utils.warnings.SyntaxWarning)
-    warnings.filterwarnings('ignore', message=r'cannot process plain `owl:AnnotationProperty`', category=pronto.utils.warnings.NotImplementedWarning)
+    warnings.filterwarnings('ignore', message=r'cannot process plain `owl:AnnotationProperty`',
+                            category=pronto.utils.warnings.NotImplementedWarning)
     warnings.filterwarnings('ignore', message=r'.*? no `xsd:datatype`', category=pronto.utils.warnings.SyntaxWarning)
     warnings.filterwarnings('ignore', message=r'several names found', category=pronto.utils.warnings.SyntaxWarning)
-    warnings.filterwarnings('ignore', message=r"unknown axiom property: 'http:\/\/www\.w3\.org\/2000\/01\/rdf-schema#", category=pronto.utils.warnings.SyntaxWarning)
+    warnings.filterwarnings('ignore', message=r"unknown axiom property: 'http:\/\/www\.w3\.org\/2000\/01\/rdf-schema#",
+                            category=pronto.utils.warnings.SyntaxWarning)
     warnings.filterwarnings('ignore', message=r'unsound encoding', category=UnicodeWarning)
 
     filename = pkg_resources.resource_filename(
         'wc_onto', os.path.join('onto.obo'))
-    
+
     cleaned_file = io.BytesIO()
     with open(filename, 'rb') as file:
         for line in file:
