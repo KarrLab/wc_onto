@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <Ontology>
+        <rdfs:label>SWEET Ontology</rdfs:label>
+        <versionInfo>2.3</versionInfo>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/rela.owl#hasRole -->
+
+    <ObjectProperty rdf:about="http://sweet.jpl.nasa.gov/2.3/rela.owl#hasRole"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/rela.owl#hasState -->
+
+    <ObjectProperty rdf:about="http://sweet.jpl.nasa.gov/2.3/rela.owl#hasState"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#Air -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#Air">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#MixedChemicalSubstance"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Mixture"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#BDOC -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#BDOC">
+        <equivalentClass rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#BiodegradableDissolvedOrganicCarbon"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#DOC"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedOrganicCarbon"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#BiodegradableDissolvedOrganicCarbon -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#BiodegradableDissolvedOrganicCarbon">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#DOC"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedOrganicCarbon"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#Chemical -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#Chemical">
+        <equivalentClass rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#ChemicalSubstance"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Substance"/>
+        <rdfs:comment xml:lang="en">Chemical substance, in chemistry, are material objects that can undergo various transformations related to artificial or natural phenomena [Wikipedia]</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#ChemicalSubstance -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#ChemicalSubstance">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Substance"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#DO -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#DO">
+        <equivalentClass rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedOxygen"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedSubstance"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#DOC -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#DOC">
+        <equivalentClass rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedOrganicCarbon"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedSubstance"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedGas -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedGas">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedSubstance"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://sweet.jpl.nasa.gov/2.3/rela.owl#hasState"/>
+                <hasValue rdf:resource="http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Gas"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedOrganicCarbon -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedOrganicCarbon">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedSubstance"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedOxygen -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedOxygen">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedSubstance"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedSolid -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedSolid">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedSubstance"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#SolidSubstance"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedSubstance -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedSubstance">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Substance"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://sweet.jpl.nasa.gov/2.3/rela.owl#hasState"/>
+                <hasValue rdf:resource="http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Dissolved"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#GreenhouseGas -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#GreenhouseGas">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Chemical"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#ChemicalSubstance"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://sweet.jpl.nasa.gov/2.3/rela.owl#hasState"/>
+                <hasValue rdf:resource="http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Gas"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#Inorganic -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#Inorganic">
+        <equivalentClass rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#InorganicSubstance"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Chemical"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#ChemicalSubstance"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#InorganicSubstance -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#InorganicSubstance">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Chemical"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#ChemicalSubstance"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#Medium -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#Medium">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Substance"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#MixedChemicalSubstance -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#MixedChemicalSubstance">
+        <equivalentClass rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Mixture"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Chemical"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#ChemicalSubstance"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#Mixture -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#Mixture">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Chemical"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#ChemicalSubstance"/>
+        <rdfs:comment xml:lang="en">In chemistry, a mixture is when two or more different substances are mixed together but not combined chemically. The molecules of two or more different substances are mixed in the form of solutions, suspensions, and colloids. [Wikipedia]</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#NeutralGas -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#NeutralGas">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Chemical"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#ChemicalSubstance"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://sweet.jpl.nasa.gov/2.3/rela.owl#hasState"/>
+                <hasValue rdf:resource="http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Gas"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://sweet.jpl.nasa.gov/2.3/rela.owl#hasState"/>
+                <hasValue rdf:resource="http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Neutral"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#OrganicLoading -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#OrganicLoading">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#DissolvedSubstance"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#SolidSubstance -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#SolidSubstance">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Substance"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://sweet.jpl.nasa.gov/2.3/rela.owl#hasState"/>
+                <hasValue rdf:resource="http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Solid"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#Solution -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#Solution">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#MixedChemicalSubstance"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Mixture"/>
+        <rdfs:comment xml:lang="en">In chemistry, a solution is a homogeneous mixture composed of two or more substances. In such a mixture, a solute is dissolved in another substance, known as a solvent. All solutions are characterized by interactions between the solvent phase and solute molecules or ions that result in a net decrease in free energy. [Wikipedia]</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#Substance -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#Substance">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#SuspendedGas -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#SuspendedGas">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#SuspendedSubstance"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://sweet.jpl.nasa.gov/2.3/rela.owl#hasState"/>
+                <hasValue rdf:resource="http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Gas"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#SuspendedSolid -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#SuspendedSolid">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#SolidSubstance"/>
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#SuspendedSubstance"/>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#SuspendedSubstance -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#SuspendedSubstance">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Substance"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://sweet.jpl.nasa.gov/2.3/rela.owl#hasState"/>
+                <hasValue rdf:resource="http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Suspended"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#TraceGas -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#TraceGas">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#TraceSubstance"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://sweet.jpl.nasa.gov/2.3/rela.owl#hasState"/>
+                <hasValue rdf:resource="http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Gas"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/matr.owl#TraceSubstance -->
+
+    <Class rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl#TraceSubstance">
+        <rdfs:subClassOf rdf:resource="http://sweet.jpl.nasa.gov/2.3/matr.owl#Substance"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://sweet.jpl.nasa.gov/2.3/rela.owl#hasRole"/>
+                <hasValue rdf:resource="http://sweet.jpl.nasa.gov/2.3/stateRole.owl#Trace"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Dissolved -->
+
+    <NamedIndividual rdf:about="http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Dissolved"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Gas -->
+
+    <NamedIndividual rdf:about="http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Gas"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Neutral -->
+
+    <NamedIndividual rdf:about="http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Neutral"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Solid -->
+
+    <NamedIndividual rdf:about="http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Solid"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Suspended -->
+
+    <NamedIndividual rdf:about="http://sweet.jpl.nasa.gov/2.3/statePhysical.owl#Suspended"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/stateRole.owl#Trace -->
+
+    <NamedIndividual rdf:about="http://sweet.jpl.nasa.gov/2.3/stateRole.owl#Trace"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://bioportal.bioontology.org/ontologies/versionSubject">
+        <versionInfo>2.3</versionInfo>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://sweet.jpl.nasa.gov/2.3/matr.owl">
+        <versionInfo>2.3</versionInfo>
+        <rdfs:label>SWEET Ontology</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi -->
+
