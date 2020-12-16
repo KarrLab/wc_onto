@@ -18,6 +18,8 @@ import wc_onto.config.core
 
 config = wc_onto.config.core.get_config()['wc_onto']
 BIO_PORTAL_API_KEY = config['bioportal']['key']
+if 0 == len(BIO_PORTAL_API_KEY):
+    raise ValueError(f"BIO_PORTAL_API_KEY not initialized")
 
 DEPENDENT_ONTOLOGIES = {
     'BFO': {
